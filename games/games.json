@@ -1,0 +1,13 @@
+{
+  "games": [{
+    "title": "Brick Breaker",
+    "image": "http://atariage.com/Jaguar/screenshots/s_Breakout2000_5.jpg",
+    "category": "Game of the Week",
+    "description": "Brick Breaker is a Breakout clone in which the player must smash a wall of bricks by deflecting a bouncing ball with a paddle.",
+    "details": {
+      "hours": 20,
+      "price": 0,
+      "date": "18 April"
+    }
+  }]
+}

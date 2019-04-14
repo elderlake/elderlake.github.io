@@ -1,0 +1,334 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400+600");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900");
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #eacda3;
+  color: #212121;
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+nav {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+  padding: 2.4rem;
+}
+
+nav .logo {
+  font-size: 2.4rem;
+  text-transform: lowercase;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.masthead {
+  height: 540px;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.masthead img {
+  width: 100%;
+}
+
+.navigation {
+  text-align: right;
+  pointer-events: none;
+}
+
+.navigation .link {
+  display: inline-block;
+  margin-left: 2.4rem;
+  line-height: 1.6;
+  letter-spacing: 0.1rem;
+  font-size: 1.4rem;
+  pointer-events: initial;
+  font-variant-caps: all-small-caps;
+}
+
+.news {
+  max-width: 1024px;
+  min-height: 500px;
+  margin: 0 auto 2.4rem auto;
+}
+
+.news h2 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.1rem;
+  font-variant-caps: all-small-caps;
+}
+
+.news article {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+  grid-gap: 1.2rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.2rem;
+  margin-top: 0.8rem;
+}
+
+.news article .title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-top: 0.4rem;
+}
+
+.news article .details {
+  font-size: 0.85rem;
+  margin-top: 1.2rem;
+}
+
+.news article .details .category {
+  margin-right: 0.4rem;
+}
+
+.news article .details .category + .date {
+  padding-left: 0.4rem;
+  border-left: 1px solid #212121;
+}
+
+.news article p {
+  margin-top: 1.2rem;
+  line-height: 1.5;
+}
+
+.games {
+  min-height: 540px;
+  padding: 0 2.4rem 2.4rem 2.4rem;
+  text-align: center;
+}
+
+.game {
+  background: #212121;
+  min-height: 540px;
+  line-height: 0;
+  text-align: center;
+}
+
+.footer {
+  background: rgba(0, 0, 0, 0.07);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 2.4rem;
+}
+
+.footer .wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2.4rem;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.footer .wrapper > :nth-child(2) {
+  text-align: center;
+}
+
+.footer .wrapper > :nth-child(3) {
+  text-align: right;
+}
+
+.footer .wrapper h4 {
+  font-variant-caps: all-small-caps;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.footer .wrapper ul {
+  margin-top: 0.8rem;
+}
+
+.footer .wrapper ul li {
+  margin-top: 0.4rem;
+}
+
+.footer .wrapper ul li:first-child {
+  margin-top: 0;
+}
+
+.card {
+  background: #eeeeee;
+  width: 300px;
+  display: inline-block;
+  margin: auto;
+  font: 14px/20px "Lato", Arial, sans-serif;
+  position: relative;
+  text-align: center;
+  z-index: 9999;
+  margin: 1.2rem;
+}
+
+.card__image {
+  position: relative;
+  height: 230px;
+  margin-bottom: 1.2rem;
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg");
+}
+
+.card__image img {
+  width: 300px;
+  height: 230px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card__level {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  background: #EC9B3B;
+  border-radius: 1.6rem;
+  display: inline-block;
+  color: #eeeeee;
+  padding: 0.4rem 1.6rem;
+}
+
+.card__unit-name {
+  font-size: 26px;
+  color: black;
+  font-weight: 900;
+}
+
+.card__unit-description {
+  padding: 20px;
+}
+
+.card__unit-description button {
+  padding: 0.8rem;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-variant-caps: all-small-caps;
+  line-height: 0;
+  margin-top: 1.2rem;
+  cursor: pointer;
+}
+
+.card__unit-stats {
+  background: #EC9B3B;
+}
+
+.card__unit-stats .one-third {
+  border-right: 1px solid #BD7C2F;
+}
+
+.card__unit-stats {
+  color: white;
+  font-weight: 700;
+}
+
+.card__unit-stats .one-third {
+  width: 33%;
+  float: left;
+  padding: 20px 15px;
+}
+
+.card__unit-stats sup {
+  position: absolute;
+  bottom: 4px;
+  font-size: 45%;
+  margin-left: 2px;
+}
+
+.card__unit-stats .stat {
+  position: relative;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card__unit-stats .stat-value {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.card__unit-stats .no-border {
+  border-right: none;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+/*# sourceMappingURL=default.css.map */

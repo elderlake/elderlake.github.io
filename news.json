@@ -1,0 +1,19 @@
+{
+  "articles": [{
+    "title": "Funky Typing Crime Scene Investigation",
+    "image": "https://via.placeholder.com/320x180.png",
+    "details": {
+      "category": "Game of the Week",
+      "date": "18 April 2019"
+    },
+    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta temporibus at magni delectus esse numquam eveniet aliquam similique aspernatur, sunt odit incidunt adipisci exercitationem. Eos deserunt quis sequi quisquam atque."
+  }, {
+    "title": "Extreme Viking Invasion",
+    "image": "https://via.placeholder.com/320x180.png",
+    "details": {
+      "category": "Game of the Week",
+      "date": "11 April 2019"
+    },
+    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta temporibus at magni delectus esse numquam eveniet aliquam similique aspernatur, sunt odit incidunt adipisci exercitationem. Eos deserunt quis sequi quisquam atque."
+  }]
+}
