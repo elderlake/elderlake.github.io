@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-@import url('https://fonts.googleapis.com/css?family=Raleway:400+600');
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,600');
 
 @import 'components/reset';
 
@@ -13,14 +13,14 @@ html, body {
 }
 
 body {
-  background-color: #eacda3;
-  color: #212121;
+  background-color: #314755;
+  color: #eeeeee;
   font-family: 'Raleway', sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: initial;
+  color: #EC9B3B;
 }
 
 nav {
@@ -64,7 +64,8 @@ nav {
 .news {
   max-width: 1024px;
   min-height: 500px;
-  margin: 0 auto 2.4rem auto;
+  margin: 4.8rem auto;
+  font-family: 'Lato', sans-serif;
 
   h2 {
     text-align: center;
@@ -82,7 +83,7 @@ nav {
     background-color: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1.2rem;
-    margin-top: 0.8rem;
+    margin-top: 2.4rem;
 
     .title {
       font-size: 1.2rem;
@@ -99,7 +100,7 @@ nav {
   
         & + .date {
           padding-left: 0.4rem;
-          border-left: 1px solid #212121;
+          border-left: 1px solid #eeeeee;
         }
       }
     }
@@ -112,9 +113,94 @@ nav {
 }
 
 .games {
-  min-height: 540px;
-  padding: 0 2.4rem 2.4rem 2.4rem;
   text-align: center;
+  font-family: 'Lato', sans-serif;
+
+  .featured {
+    letter-spacing: -0.31rem;
+    display: inline-block;
+
+    .photo {
+      position: relative;
+      display: inline-block;
+      width: 616px;
+      height: 353px;
+
+      img {
+        position: absolute;
+        left: 0;
+        width: 616px;
+        height: 353px;
+        object-fit: cover;
+        transition: opacity 600ms ease-in-out;
+
+        &.hidden {
+          opacity: 0;
+        }
+      }
+    }
+
+    .info {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      text-align: left;
+      letter-spacing: initial;
+      width: 354px;
+      height: 353px;
+      background-color: #eeeeee;
+
+      h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #212121;
+        margin: 1.6rem 0 0.8rem 10px;
+      }
+
+      .screenshots {
+        letter-spacing: -0.31rem;
+        margin-left: 10px;
+        margin-top: 10px;
+
+        img {
+          margin-top: 7px;
+          margin-right: 10px;
+          transition: opacity 120ms ease-in-out;
+
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+
+      .release {
+        font-size: 0.95rem;
+        background: #EC9B3B;
+        color: #212121;
+        display: inline-block;
+        border-radius: 1.2rem;
+        padding: 0.6rem 1.2rem 0.8rem 1.2rem;
+        letter-spacing: 0.05rem;
+        margin-left: 10px;
+        font-variant-caps: all-small-caps;
+        line-height: 0;
+      }
+
+      .details {
+        position: absolute;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        bottom: 0;
+        padding: 0.8rem;
+        color: #212121;
+        width: 100%;
+
+        :nth-child(2) {
+          text-align: right;
+        }
+      }
+    }
+  }
 }
 
 .game {
@@ -128,6 +214,7 @@ nav {
   background: rgba(0, 0, 0, 0.07);
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding: 2.4rem;
+  font-family: 'Lato', sans-serif;
 
   .wrapper {
     display: grid;
@@ -162,113 +249,4 @@ nav {
       }
     }
   }
-}
-
-.card {
-  background: #eeeeee;
-  width: 300px;
-  display: inline-block;
-  margin: auto;
-  font: 14px/20px "Lato", Arial, sans-serif;
-  position: relative;
-  text-align: center;
-  z-index: 9999;
-  margin: 1.2rem;
-}
-
-.card__image {
-  position: relative;
-  height: 230px;
-  margin-bottom: 1.2rem;
-  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg');
-  
-  img {
-    width: 300px;
-    height: 230px;
-    object-fit: cover;
-  }
-}
-
-.card__level {
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 1.2rem;
-  background: #EC9B3B;
-  border-radius: 1.6rem;
-  display: inline-block;
-  color: #eeeeee;
-  padding: 0.4rem 1.6rem;
-}
-
-.card__unit-name {
-  font-size: 26px;
-  color: black;
-  font-weight: 900;
-}
-
-.card__unit-description {
-  padding: 20px;
-
-  button {
-    padding: 0.8rem;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    font-variant-caps: all-small-caps;
-    line-height: 0;
-    margin-top: 1.2rem;
-    cursor: pointer;
-  }
-}
-
-.card__unit-stats {
-  background: #EC9B3B;
-  
-  .one-third {
-     border-right: 1px solid #BD7C2F;
-  }
-}
-
-.card__unit-stats {
-  color: white;
-  font-weight: 700;
-  
-  .one-third {
-    width: 33%;
-    float: left;
-    padding: 20px 15px;
-  }
-  
-  sup {
-    position: absolute;
-    bottom: 4px; 
-    font-size: 45%;
-    margin-left: 2px;
-  }
-  
-  .stat {
-    position: relative;
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .stat-value {
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 12px;
-  }
-
-  .no-border {
-    border-right: none;
-  }
-}
-
-.clearfix:after {
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
-	clear: both;
-	height: 0;
 }

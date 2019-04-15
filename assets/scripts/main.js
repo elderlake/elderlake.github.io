@@ -11,79 +11,109 @@ function loadJSON(filename, callback) {
   xobj.send(null);  
 }
 
-function getGames () {
+function loadHomepage () {
+  getGames('games')
+  getNews()
+}
+
+function getGames (folder) {
   let gamesElement = document.querySelector('#games')
 
   loadJSON('games.json', (response) => {
     let games = JSON.parse(response).games
 
     games.forEach((game, gameIndex) => {
-      let thisGame = createElement({
-        tag: 'div',
-        classList: ['card'],
-        children: [{
-          tag: 'div',
-          classList: ['card__image'],
-          children: [{
-            tag: 'img',
-            src: game.image
-          }]
-        }, {
-          tag: 'div',
-          classList: ['card__level'],
-          textContent: game.category
-        }, {
-          tag: 'div',
-          classList: ['card__unit-name'],
-          textContent: game.title
-        }, {
-          tag: 'div',
-          classList: ['card__unit-description'],
-          innerHTML: game.description + ' <a href=\'./' + game.title.toLowerCase().replace(' ', '-') + '/\'><button>Play</button></a>'
-        }, {
-          tag: 'div',
-          classList: ['card__unit-stats', 'clearfix'],
-          children: [{
-            tag: 'div',
-            classList: ['one-third'],
-            children: [{
-              tag: 'div',
-              classList: ['stat'],
-              textContent: game.details.hours
-            }, {
-              tag: 'div',
-              classList: ['stat-value'],
-              textContent: 'Hours'
-            }]
-          }, {
-            tag: 'div',
-            classList: ['one-third'],
-            children: [{
-              tag: 'div',
-              classList: ['stat'],
-              textContent: (game.details.price == 0) ? "FREE" : game.details.price.toString()
-            }, {
-              tag: 'div',
-              classList: ['stat-value'],
-              textContent: 'Price'
-            }]
-          }, {
-            tag: 'div',
-            classList: ['one-third', 'no-border'],
-            children: [{
-              tag: 'div',
-              classList: ['stat'],
-              textContent: game.details.date.split(' ')[0]
-            }, {
-              tag: 'div',
-              classList: ['stat-value'],
-              textContent: game.details.date.split(' ')[1]
-            }]
-          }]
-        }]
+      let link = createElement({
+        tag: 'a',
+        href: (folder) ? './' + folder + '/' + game.title.toLowerCase().replace(' ', '-') : './' + game.title.toLowerCase().replace(' ', '-')
       })
 
-      gamesElement.appendChild(thisGame)
+      let thisGame = createElement({
+        tag: 'div',
+        classList: ['featured'],
+        parent: link
+      })
+
+      let photoContainer = createElement({
+        tag: 'div',
+        classList: ['photo'],
+        parent: thisGame
+      })
+
+      let photoBottom = createElement({
+        tag: 'img',
+        classList: ['bottom'],
+        src: game.image,
+        parent: photoContainer
+      })
+
+      let photoTop = createElement({
+        tag: 'img',
+        classList: ['top'],
+        src: game.image,
+        parent: photoContainer
+      })
+
+      let info = createElement({
+        tag: 'div',
+        classList: ['info'],
+        children: [{
+          tag: 'h3',
+          textContent: game.title
+        }],
+        parent: thisGame
+      })
+
+      let release = createElement({
+        tag: 'div',
+        classList: ['release'],
+        textContent: 'Game of the Week',
+        parent: info
+      })
+
+      let screenshots = createElement({
+        tag: 'div',
+        classList: ['screenshots'],
+        parent: info
+      })
+
+      game.screenshots.forEach((screenshot, screenshotIndex) => {
+        let thisScreenshot = createElement({
+          tag: 'img',
+          src: screenshot
+        })
+        
+        thisScreenshot.addEventListener('mouseenter', () => {
+          photoTop.classList.add('hidden')
+          photoBottom.src = thisScreenshot.src
+        })
+
+        thisScreenshot.addEventListener('mouseleave', () => {
+          photoTop.classList.remove('hidden')
+        })
+
+        screenshots.appendChild(thisScreenshot)
+      })
+
+      let details = createElement({
+        tag: 'div',
+        classList: ['details'],
+        children: [{
+          tag: 'div',
+          classList: ['price'],
+          textContent: (game.details.price == 0) ? "FREE" : game.details.price.toString()
+        }, {
+          tag: 'div',
+          classList: ['platforms'],
+          children: [{
+            tag: 'i',
+            classList: ['fab', 'fa-html5']
+          }]
+        }],
+        parent: info
+      })
+
+      gamesElement.appendChild(link)
     })
   })
 }

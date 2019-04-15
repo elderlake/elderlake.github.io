@@ -11,17 +11,19 @@
     <link rel='stylesheet' href='./assets/styles/default.css'>
   </head>
 
-  <body onload='getNews()'>
+  <body onload='loadHomepage()'>
     <nav>
       <h1 class='logo'><a href='./'>Elderlake</a></h1>
 
       <ul class='navigation'>
-        <li class='link'><a href='./games/'>Games</a></li>
+        <li class='link'>Games</li>
         <li class='link'>Art</li>
         <li class='link'>News</li>
         <li class='link'>Contact</li>
       </ul>
     </nav>
+    
+    <div id='games' class='games'></div>
 
     <div id='news' class='news'>
       <h2>Latest News</h2>

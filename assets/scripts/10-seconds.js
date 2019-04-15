@@ -18,7 +18,7 @@ game.input.pointers.primary.on('move', function (event) {
 let ball = new ex.Actor(100, 300, 20, 20)
 
 ball.color = ex.Color.Red
-ball.vel.setTo(300, 300)
+ball.vel.setTo(100, 100)
 ball.collisionType = ex.CollisionType.Passive
 
 ball.on('precollision', function (event) {
