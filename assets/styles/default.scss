@@ -1,52 +1,237 @@
-/*
-//  Custom Fonts
-//  Josefin Sans: Logo | Raleway: Menu | Lato: Standard
-*/
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css?family=Lato:400,600');
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
 
-@import 'components/reset';
-@import 'components/typography';
-@import 'components/menus';
-@import 'components/cards';
+$primary-color: #acb6e5;
+$secondary-color: #74ebd5;
+
+$logo-color: #868fb8;
 
 * {
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
+html {
+  min-height: 100%;
 }
 
 body {
-  background-color: #314755;
-  color: #eeeeee;
-  font-family: 'Lato', sans-serif;
-}
+  background: linear-gradient(0.35turn, $primary-color, $secondary-color) no-repeat;
+  background-size: 300%;
+  background-attachment: fixed;
+  margin: 0;
+  min-height: 100%;
+  font-family: 'Bahnschrift', sans-serif;
+  font-weight: 100;
+  color: #212121;
 
-.news {
-  max-width: 1024px;
-  min-height: 500px;
-  margin: 4.8rem auto;
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+    background: #eeeeee;
+  }
 
-  h2 {
-    text-align: center;
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 1.6rem;
-    letter-spacing: 0.1rem;
-    font-variant-caps: all-small-caps;
+  &::-webkit-scrollbar-thumb {
+    background: #868fb8;
+    border-radius: 0.3rem;
+    border: 1px solid #eeeeee;
   }
 }
 
-.games {
-  text-align: center;
+.header {
+  padding: 0.8rem;
+  height: calc(32px + 1.6rem);
+  position: fixed;
+  width: 100%;
+  transition: background 30ms, padding 300ms ease-in-out;
+  z-index: 10;
+
+  &-logo {
+    height: 100%;
+    vertical-align: middle;
+    height: 48px;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: calc(50% - 0.5rem);
+    transition: left 300ms, transform 300ms, height 300ms ease-in-out;
+
+    &-text {
+      font-family: 'Righteous', sans-serif;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      color: #212121;
+      vertical-align: middle;
+      margin-left: 0.4rem;
+      position: absolute;
+      transform: translate(-50%, 0%);
+      left: calc(50% - 0.5rem);
+      top: calc(48px + 1.2rem);
+      transition: left 300ms, transform 300ms, top 300ms, font-size 300ms ease-in-out;
+    }
+  }
+
+  &-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    ul {
+      margin: 0;
+      padding-left: 0.8rem;
+      list-style-type: none;
+      font-size: initial;
+
+      li {
+        display: inline-block;
+        margin-left: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0.8rem;
+        }
+
+        a {
+          color: initial;
+          text-decoration: none;
+          transition: color 120ms ease-in-out;
+
+          &:hover {
+            color: $logo-color;
+          }
+        }
+      }
+    }
+
+    &-left {
+      .links {
+        display: inline-block;
+        margin-top: 0.5rem;
+
+        animation-name: slideIn;
+        animation-duration: 300ms;
+        animation-fill-mode: forwards;
+      }
+    }
+    
+    &-right {
+      text-align: right;
+      font-size: 2rem;
+
+      .links {
+        visibility: hidden;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 0.5rem;
+
+        animation-name: slideOut;
+        animation-duration: 300ms;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+
+  &.scrolled {
+    background: #eeeeee;
+    padding: 0.8rem 4.8rem;
+
+    .header-logo {
+      left: 4.8rem;
+      transform: translate(0%, 0%);
+      height: 32px;
+
+      &-text {
+        left: calc(4.8rem + 24px);
+        transform: translate(0%, -50%);
+        top: calc(0.8rem + 16px);
+        font-size: 1.4rem;
+      }
+    }
+
+    .header-menu-left {
+      .links {
+        animation-name: slideOut;
+        animation-duration: 300ms;
+        animation-fill-mode: forwards;
+      }
+    }
+
+    .header-menu-right {
+      .links {
+        animation-name: slideIn;
+        animation-duration: 300ms;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
 }
 
-.game {
-  background: #212121;
-  min-height: 500px;
-  line-height: 0;
-  text-align: center;
+.masthead {
+  background: #eeeeee;
+  position: relative;
+  padding: 4.8rem;
+
+  &-text {
+    margin-top: 5.6rem;
+    transition: opacity 30ms ease-in-out;
+    padding-left: 3.1em;
+    text-indent: -3.1em;
+    
+    ion-icon {
+      font-size: 2.7rem;
+      vertical-align: top;
+    }
+
+    h3 {
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+      margin-bottom: 0;
+    }
+
+    h4 {
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: 100;
+    }
+  }
+
+  &-info {
+    margin-top: 1.6rem;
+    transition: opacity 30ms ease-in-out;
+
+    p {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.content {
+  padding: 0.8rem 4.8rem;
+
+  &.padded {
+    background: #eeeeee;
+    padding: 9.6rem 4.8rem;
+  }
+
+  h3 {
+    background: #eeeeee;
+    padding: 0.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 0.3rem;
+  }
+}
+
+@keyframes slideOut {
+  0% {opacity: 1;visibility: visible;}
+  99% {opacity: 0;visibility: visible;}
+  100% {opacity: 0;visibility: hidden;}
+}
+
+@keyframes slideIn {
+  0% {opacity: 0;visibility: hidden;}
+  1% {opacity: 0;visibility: visible;}
+  100% {opacity: 1;visibility: visible;}
 }
