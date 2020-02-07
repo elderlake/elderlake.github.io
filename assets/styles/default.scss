@@ -1,25 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+@import 'components/index';
 
-$primary-color: #acb6e5;
-$secondary-color: #74ebd5;
-
-$logo-color: #868fb8;
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  min-height: 100%;
-}
+@import url('https://fonts.googleapis.com/css?family=Lato:400,600|Source+Sans+Pro&display=swap');
 
 body {
-  background: linear-gradient(0.35turn, $primary-color, $secondary-color) no-repeat;
-  background-size: 300%;
-  background-attachment: fixed;
-  margin: 0;
+  background: #eeeeee;
   min-height: 100%;
-  font-family: 'Bahnschrift', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 100;
   color: #212121;
 
@@ -35,203 +21,137 @@ body {
   }
 }
 
-.header {
-  padding: 0.8rem;
-  height: calc(32px + 1.6rem);
-  position: fixed;
-  width: 100%;
-  transition: background 30ms, padding 300ms ease-in-out;
-  z-index: 10;
+.content {
+  padding: 0.8rem 4.8rem;
+}
 
-  &-logo {
-    height: 100%;
-    vertical-align: middle;
-    height: 48px;
-    position: absolute;
-    transform: translate(-50%, 0%);
-    left: calc(50% - 0.5rem);
-    transition: left 300ms, transform 300ms, height 300ms ease-in-out;
+.guild {
+  margin-top: 4.8rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
-    &-text {
-      font-family: 'Righteous', sans-serif;
-      font-size: 1.8rem;
-      text-transform: uppercase;
-      color: #212121;
-      vertical-align: middle;
-      margin-left: 0.4rem;
-      position: absolute;
-      transform: translate(-50%, 0%);
-      left: calc(50% - 0.5rem);
-      top: calc(48px + 1.2rem);
-      transition: left 300ms, transform 300ms, top 300ms, font-size 300ms ease-in-out;
-    }
-  }
+  &-member {
+    display: flex;
+    justify-content: center;
 
-  &-menu {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    .card {
+      width: 160px;
 
-    ul {
-      margin: 0;
-      padding-left: 0.8rem;
-      list-style-type: none;
-      font-size: initial;
-
-      li {
-        display: inline-block;
-        margin-left: 1.2rem;
-        font-weight: 700;
-        text-transform: uppercase;
-
-        &:first-child {
-          margin-left: 0;
-        }
-
-        &:last-child {
-          margin-right: 0.8rem;
-        }
-
-        a {
-          color: initial;
-          text-decoration: none;
-          transition: color 120ms ease-in-out;
-
-          &:hover {
-            color: $logo-color;
-          }
-        }
-      }
-    }
-
-    &-left {
-      .links {
-        display: inline-block;
-        margin-top: 0.5rem;
-
-        animation-name: slideIn;
-        animation-duration: 300ms;
-        animation-fill-mode: forwards;
-      }
-    }
-    
-    &-right {
-      text-align: right;
-      font-size: 2rem;
-
-      .links {
-        visibility: hidden;
-        display: inline-block;
-        vertical-align: top;
-        margin-top: 0.5rem;
-
-        animation-name: slideOut;
-        animation-duration: 300ms;
-        animation-fill-mode: forwards;
-      }
-    }
-  }
-
-  &.scrolled {
-    background: #eeeeee;
-    padding: 0.8rem 4.8rem;
-
-    .header-logo {
-      left: 4.8rem;
-      transform: translate(0%, 0%);
-      height: 32px;
-
-      &-text {
-        left: calc(4.8rem + 24px);
-        transform: translate(0%, -50%);
-        top: calc(0.8rem + 16px);
-        font-size: 1.4rem;
-      }
-    }
-
-    .header-menu-left {
-      .links {
-        animation-name: slideOut;
-        animation-duration: 300ms;
-        animation-fill-mode: forwards;
-      }
-    }
-
-    .header-menu-right {
-      .links {
-        animation-name: slideIn;
-        animation-duration: 300ms;
-        animation-fill-mode: forwards;
+      &-image {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
       }
     }
   }
 }
 
-.masthead {
-  background: #eeeeee;
-  position: relative;
+.section {
   padding: 4.8rem;
+  min-height: 100vh;
 
   &-text {
-    margin-top: 5.6rem;
-    transition: opacity 30ms ease-in-out;
-    padding-left: 3.1em;
-    text-indent: -3.1em;
-    
+    // margin-top: 3.2rem;
+  }
+
+  &-title {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-top: 0.4rem;
+
     ion-icon {
-      font-size: 2.7rem;
+      font-size: 1.8rem;
       vertical-align: top;
+      position: relative;
+      top: 4px;
+      margin-right: 0.2rem;
     }
+  }
 
-    h3 {
-      font-size: 2.4rem;
-      text-transform: uppercase;
-      margin-top: 0.4rem;
-      margin-bottom: 0;
-    }
+  &-subtitle {
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 0.85rem;
+  }
+}
 
-    h4 {
-      margin: 0;
-      text-transform: uppercase;
-      font-weight: 100;
-    }
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2.4rem;
+  margin-top: 2.4rem;
+
+  &-item {
+    background: white;
+    width: 100%;
+    text-align: center;
+    padding: 1.2rem;
+  }
+
+  &-image {
+    display: block;
+    height: 240px;
+    margin: 0 auto;
+  }
+
+  &-title {
+    font-size: 1rem;
+    padding-top: 1.2rem;
+    margin-top: 1.2rem;
+    border-top: 1px solid #eeeeee;
+  }
+
+  &-description {
+    font-size: 0.85rem;
+    margin-top: 0.8rem;
+  }
+}
+
+.contactform {
+  margin-top: 3.2rem;
+  border-radius: 0.2rem;
+
+  input, textarea {
+    padding: 0.8rem;
+    background: none;
+    border: 1px solid #dddddd;
+    border-radius: 0.2rem;
   }
 
   &-info {
-    margin-top: 1.6rem;
-    transition: opacity 30ms ease-in-out;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.2rem;
+  }
 
-    p {
-      margin: 0;
-      font-size: 1.2rem;
+  &-message {
+    margin-top: 0.2rem;
+
+    input, textarea {
+      display: block;
+      width: 100%;
+    }
+
+    textarea {
+      resize: none;
+      margin-top: 0.2rem;
     }
   }
-}
 
-.content {
-  padding: 0.8rem 4.8rem;
+  &-button {
+    margin-top: 0.2rem;
+    text-align: right;
 
-  &.padded {
-    background: #eeeeee;
-    padding: 9.6rem 4.8rem;
+    button {
+      padding: 0.5rem 1.2rem 0.4rem 1.2rem;
+      border-radius: 0.2rem;
+      border: none;
+      background: $logo-color;
+      color: #eeeeee;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.1rem;
+    }
   }
-
-  h3 {
-    background: #eeeeee;
-    padding: 0.8rem;
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 0.3rem;
-  }
-}
-
-@keyframes slideOut {
-  0% {opacity: 1;visibility: visible;}
-  99% {opacity: 0;visibility: visible;}
-  100% {opacity: 0;visibility: hidden;}
-}
-
-@keyframes slideIn {
-  0% {opacity: 0;visibility: hidden;}
-  1% {opacity: 0;visibility: visible;}
-  100% {opacity: 1;visibility: visible;}
 }

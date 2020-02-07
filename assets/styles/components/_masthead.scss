@@ -1,0 +1,65 @@
+.masthead {
+  position: relative;
+  padding: 4.8rem;
+  min-height: 640px;
+  height: 100vh;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    background: url('../images/mountains.jpg');
+    background-size: cover;
+    filter: blur(4px) grayscale(100%);
+    position: absolute;
+    top: -8px;
+    bottom: -8px;
+    left: -8px;
+    right: -8px;
+    z-index: -3;
+  }
+
+  &-overlay {
+    background: rgba(255, 255, 255, 0.85);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+
+    &:after {
+      content: '';
+      background: linear-gradient(transparent, transparent, transparent, #eeeeee);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+    }
+  }
+
+  &-text {
+    margin-top: 3.2rem;
+  }
+
+  &-title {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-top: 0.4rem;
+
+    ion-icon {
+      font-size: 1.8rem;
+      vertical-align: top;
+      position: relative;
+      top: 4px;
+      margin-right: 0.2rem;
+    }
+  }
+
+  &-subtitle {
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 0.85rem;
+  }
+}
