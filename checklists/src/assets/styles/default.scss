@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+}
+
+body, ul, input, h1, h2 {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+$blue: #3a8af3;
+$orange: #f39d3a;
+
+$accentColor: $blue;
+
+body {
+  background-color: #eeeeee;
+  font-family: 'Roboto', sans-serif;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin: 0px 16px 16px 16px;
+}
+
+h1 > input[type="text"] {
+  font-size: inherit;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #cccccc;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  transition: border 120ms, background-color 120ms ease-in-out;
+  animation: checkbox-shrink 120ms cubic-bezier(0, 0.2, 0.8, 1);
+
+  &:checked {
+    border: 2px solid $accentColor;
+    background-color: $accentColor;
+    animation: checkbox 120ms cubic-bezier(0, 0.2, 0.8, 1);
+  }
+}
+
+@keyframes checkbox-shrink {
+  0% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes checkbox {
+  0% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+input[type="text"] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #cccccc;
+  border-radius: 0px;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+  padding: 0px;
+  line-height: 0;
+  transition: border 120ms ease-in-out;
+
+  &:focus {
+    border-bottom: 2px solid $accentColor;
+  }
+}
+
+li {
+  margin-bottom: 8px;
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  grid-gap: 8px;
+  padding: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  transition: background-color 120ms ease-in-out;
+
+  &.active {
+    background-color: #ffffff;
+  }
+}
+
+.loader {
+  background-color: $accentColor;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+
+  .lds-ripple div {
+    position: absolute;
+    border: 4px solid #fff;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+}
+
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
+.views {
+  padding: 16px 0px 16px 0px;
+  height: 100%;
+  position: relative;
+
+  ul li {
+    margin-left: 16px;
+  }
+
+  button {
+    background: #c54c4c;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 0;
+  }
+}
+
+.checklists {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.todos {
+  background-color: #ffffff;
+  height: 100%;
+  padding: 16px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $accentColor;
+  }
+}
