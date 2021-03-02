@@ -1,0 +1,85 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.4em;
+  font-weight: 300;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  margin-top: 16px;
+}
+
+h3 {
+  font-size: 1.8em;
+  font-weight: 400;
+  margin: 0;
+}
+
+span {
+  margin-top: 16px;
+}
+
+img {
+  margin-top: 64px;
+}
+
+button {
+  margin-top: 32px;
+  font-size: 1.2em;
+  padding: 8px 24px;
+  border-radius: 32px;
+  border: none;
+  outline: none;
+  background-color: #59e459;
+  color: #2d492d;
+  -webkit-transition: all 90ms ease-in-out;
+  transition: all 90ms ease-in-out;
+}
+
+button:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  background-color: #6ef16e;
+  color: #3d663d;
+}
+
+button:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+  background-color: #58d158;
+  color: #273d27;
+}
+
+.hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  text-align: center;
+}
+
+.hero.dark {
+  background: -webkit-gradient(linear, left top, right top, from(#27343D), to(#212227));
+  background: linear-gradient(0.25turn, #27343D, #212227);
+  color: #ffffff;
+}
+/*# sourceMappingURL=default.css.map */
