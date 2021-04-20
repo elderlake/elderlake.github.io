@@ -1,8 +1,6 @@
 const gun = GUN({ peers: ['https://elderlake.herokuapp.com/gun'] });
 const user = gun.user().recall({ sessionStorage: true });
 
-// TODO: Encrypt data stored in db.
-
 const vm = new ViewModel({
   data: {
     displayName: "",
@@ -31,7 +29,7 @@ const vm = new ViewModel({
         // Add a todo to the person's user object.
         user.get("todos").set({
           content: await SEA.encrypt(this.content, user._.sea),
-          done: await SEA.encrypt(false, user._sea),
+          done: await SEA.encrypt(false, user._.sea),
           timestamp: await SEA.encrypt(Date.now(), user._.sea),
         });
 
@@ -50,36 +48,38 @@ const vm = new ViewModel({
             }
           }
         } else {
-          if (this.existsInArray("todos", todo, "todo")) { return; }
-
-          console.log(await SEA.decrypt(todo.content, user._.sea));
+          for (let i = 0; i < this.todos.length; i++) {
+            if (this.todos[i].key === key) { return; }
+          }
 
           let content = await SEA.decrypt(todo.content, user._.sea);
-          // let done = await SEA.decrypt(todo.done, user._.sea);
-          // let timestamp = await SEA.decrypt(todo.timestamp, user._.sea);
+          let done = await SEA.decrypt(todo.done, user._.sea);
+          let timestamp = await SEA.decrypt(todo.timestamp, user._.sea);
     
           this.todos.push({
             todo: {
               content: content,
-              // done: done,
-              // timestamp: timestamp,
+              done: done,
+              timestamp: timestamp,
             },
             key: key,
           });
 
           user.get("todos").get(key).get("done").on((data) => {
-            this.todos.forEach((item, i) => {
+            this.todos.forEach(async (item, i) => {
               if (item.key === key) {
-                this.todos[i].todo.done = data;
+                let done = await SEA.decrypt(data, user._.sea);
+                this.todos[i].todo.done = done;
                 this.refresh();
               }
             });
           });
 
           user.get("todos").get(key).get("content").on((data) => {
-            this.todos.forEach((item, i) => {
+            this.todos.forEach(async (item, i) => {
               if (item.key === key) {
-                this.todos[i].todo.content = data;
+                let content = await SEA.decrypt(data, user._.sea);
+                this.todos[i].todo.content = content;
                 this.refresh();
               }
             });
@@ -90,8 +90,9 @@ const vm = new ViewModel({
         this.refresh();
       });
     },
-    update(key, sub, value) {
-      user.get("todos").get(key).get(sub).put(value);
+    async update(key, sub, value) {
+      let enc = await SEA.encrypt(value, user._.sea);
+      user.get("todos").get(key).get(sub).put(enc);
     },
     delete(key) {
       user.get("todos").get(key).put(null);
@@ -123,7 +124,7 @@ const vm = new ViewModel({
         }
   
         // Update the todo when the content changes.
-        span.oninput = (e) => {
+        span.onblur = (e) => {
           this.update(item.key, "content", e.target.textContent);
         }
   
