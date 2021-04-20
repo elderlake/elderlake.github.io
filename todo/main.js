@@ -1,4 +1,4 @@
-const gun = GUN({ peers: ['http://elderlake.herokuapp.com/gun'] });
+const gun = GUN({ peers: ['https://elderlake.herokuapp.com/gun'] });
 const user = gun.user().recall({ sessionStorage: true });
 
 // TODO: Encrypt data stored in db.
