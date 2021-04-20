@@ -2,7 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Todo App</title>
+
+    <link rel="icon" href="/favicon.ico">
+
     <link rel="stylesheet" href="./style.css">
   </head>
 
@@ -13,7 +19,7 @@
         <h2>Your destiny awaits you.</h2>
 
         <div class="card">
-          <input type="text" placeholder="New todo" data-halk="content">
+          <input type="text" placeholder="New todo" data-halk="content" data-ref="new">
           <button onclick="vm.create()">Add Todo</button>
           <button onclick="vm.logout()">Log Out</button>
         </div>
@@ -29,7 +35,7 @@
 
         <div class="card">
           <input type="text" placeholder="Alias" data-halk="alias">
-          <input type="password" placeholder="Password" data-halk="password">
+          <input type="password" placeholder="Password" data-halk="password" data-ref="password">
           <button onclick="vm.login()">Log In</button>
           <button onclick="vm.register()">Create New Account</button>
         </div>
