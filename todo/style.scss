@@ -1,0 +1,65 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+body, h1, h2, h3, h4, h5, h6, ul { margin: 0; }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+h1 {
+  margin-bottom: 6px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-weight: 100;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+input[type=text], input[type=password], button {
+  background-color: transparent;
+  padding: 6px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input[type=text], input[type=password] { background-color: #f0f0f0; }
+
+button { background-color: #ffffff; }
+
+#app {
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  font-family: Helvetica, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  padding: 6px;
+  text-align: initial;
+}
+
+.todoitem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > div {
+    display: grid;
+    grid-template-columns: 12px 1fr;
+    grid-gap: 12px;
+  }
+}

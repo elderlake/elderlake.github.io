@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <div id="app">
+      <div data-if="displayName">
+        <h1>Welcome, {{ displayName }}!</h1>
+        <h2>Your destiny awaits you.</h2>
+
+        <div class="card">
+          <input type="text" placeholder="New todo" data-halk="content">
+          <button onclick="vm.create()">Add Todo</button>
+          <button onclick="vm.logout()">Log Out</button>
+        </div>
+
+        <div class="card">
+          <ul class="todos" data-ref="todos"></ul>
+        </div>
+      </div>
+
+      <div data-else>
+        <h1>HAL</h1>
+        <h2>Hypermedia Application Library</h2>
+
+        <div class="card">
+          <input type="text" placeholder="Alias" data-halk="alias">
+          <input type="password" placeholder="Password" data-halk="password">
+          <button onclick="vm.login()">Log In</button>
+          <button onclick="vm.register()">Create New Account</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
+    <script src="../hal.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>

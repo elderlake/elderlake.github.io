@@ -1,0 +1,89 @@
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, ul {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+h1 {
+  margin-bottom: 6px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-weight: 100;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+input[type=text], input[type=password], button {
+  background-color: transparent;
+  padding: 6px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input[type=text], input[type=password] {
+  background-color: #f0f0f0;
+}
+
+button {
+  background-color: #ffffff;
+}
+
+#app {
+  background: #f0f0f0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  text-align: center;
+  font-family: Helvetica, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  padding: 6px;
+  text-align: initial;
+}
+
+.todoitem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.todoitem > div {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 12px 1fr;
+      grid-template-columns: 12px 1fr;
+  grid-gap: 12px;
+}
+/*# sourceMappingURL=style.css.map */
