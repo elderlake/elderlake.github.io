@@ -24,15 +24,15 @@ const vm = new ViewModel({
       user.leave();
       this.clear();
     },
-    create() {
+    async create() {
       if (this.content.trim() !== "") {
         // TODO: Ask for permission to write to the person's app access point.
 
         // Add a todo to the person's user object.
         user.get("todos").set({
-          content: this.content,
-          done: false,
-          timestamp: Date.now(),
+          content: await SEA.encrypt(this.content, user._.sea),
+          done: await SEA.encrypt(false, user._sea),
+          timestamp: await SEA.encrypt(Date.now(), user._.sea),
         });
 
         // Clear the content input key.
@@ -42,7 +42,7 @@ const vm = new ViewModel({
     read() {
       // TODO: Ask for permission to read from the person's app access point.
 
-      user.get("todos").map().on((todo, key) => {
+      user.get("todos").map().on(async (todo, key) => {
         if (!todo) {
           for (let i = 0; i < this.todos.length; i++) {
             if (this.todos[i].key === key) {
@@ -51,9 +51,19 @@ const vm = new ViewModel({
           }
         } else {
           if (this.existsInArray("todos", todo, "todo")) { return; }
+
+          console.log(await SEA.decrypt(todo.content, user._.sea));
+
+          let content = await SEA.decrypt(todo.content, user._.sea);
+          // let done = await SEA.decrypt(todo.done, user._.sea);
+          // let timestamp = await SEA.decrypt(todo.timestamp, user._.sea);
     
           this.todos.push({
-            todo: todo,
+            todo: {
+              content: content,
+              // done: done,
+              // timestamp: timestamp,
+            },
             key: key,
           });
 
@@ -61,6 +71,15 @@ const vm = new ViewModel({
             this.todos.forEach((item, i) => {
               if (item.key === key) {
                 this.todos[i].todo.done = data;
+                this.refresh();
+              }
+            });
+          });
+
+          user.get("todos").get(key).get("content").on((data) => {
+            this.todos.forEach((item, i) => {
+              if (item.key === key) {
+                this.todos[i].todo.content = data;
                 this.refresh();
               }
             });
