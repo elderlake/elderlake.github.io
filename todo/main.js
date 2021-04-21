@@ -26,11 +26,15 @@ const vm = new ViewModel({
       if (this.content.trim() !== "") {
         // TODO: Ask for permission to write to the person's app access point.
 
+        let content = await SEA.encrypt(this.content, user._.sea);
+        let done = await SEA.encrypt(false, user._.sea);
+        let timestamp = await SEA.encrypt(Date.now(), user._.sea);
+
         // Add a todo to the person's user object.
         user.get("todos").set({
-          content: await SEA.encrypt(this.content, user._.sea),
-          done: await SEA.encrypt(false, user._.sea),
-          timestamp: await SEA.encrypt(Date.now(), user._.sea),
+          content: content,
+          done: done,
+          timestamp: timestamp,
         });
 
         // Clear the content input key.
@@ -48,15 +52,14 @@ const vm = new ViewModel({
             }
           }
         } else {
-          for (let i = 0; i < this.todos.length; i++) {
-            if (this.todos[i].key === key) { return; }
-          }
+          // TODO: Fix duplicate todos showing when adding a new one
 
           let content = await SEA.decrypt(todo.content, user._.sea);
           let done = await SEA.decrypt(todo.done, user._.sea);
           let timestamp = await SEA.decrypt(todo.timestamp, user._.sea);
     
           this.todos.push({
+            match: todo,
             todo: {
               content: content,
               done: done,
@@ -85,8 +88,7 @@ const vm = new ViewModel({
             });
           });
         }
-    
-        // Render the todo list
+
         this.refresh();
       });
     },
