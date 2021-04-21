@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Todo App</title>
+    <title>Todo - by Elderlake</title>
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 
     <link rel="stylesheet" href="./style.css">
   </head>
@@ -18,14 +18,14 @@
         <h1>Welcome, {{ displayName }}!</h1>
         <h2>Your destiny awaits you.</h2>
 
-        <div class="card">
+        <div class="card padding">
           <input type="text" placeholder="New todo" data-halk="content" data-ref="new">
           <button onclick="vm.create()">Add Todo</button>
           <button onclick="vm.logout()">Log Out</button>
         </div>
 
-        <div class="card">
-          <ul class="todos" data-ref="todos"></ul>
+        <div class="card todos">
+          <ul data-ref="todos"></ul>
         </div>
       </div>
 
@@ -42,9 +42,12 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
+    <!-- Libraries -->
+    <script src="../gun.js"></script>
+    <script src="../sea.js"></script>
     <script src="../hal.js"></script>
+
+    <!-- App Access Point -->
     <script src="./main.js"></script>
   </body>
 </html>

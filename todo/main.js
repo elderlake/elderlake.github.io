@@ -10,6 +10,7 @@ const vm = new ViewModel({
     todos: [],
   },
   methods: {
+    // ? Authentication
     register() {
       user.create(this.alias.toLowerCase(), this.password);
       this.clear();
@@ -22,83 +23,104 @@ const vm = new ViewModel({
       user.leave();
       this.clear();
     },
-    async create() {
-      if (this.content.trim() !== "") {
-        // TODO: Ask for permission to write to the person's app access point.
 
-        let content = await SEA.encrypt(this.content, user._.sea);
-        let done = await SEA.encrypt(false, user._.sea);
-        let timestamp = await SEA.encrypt(Date.now(), user._.sea);
+    // * CRUD App
+    create() {
+      if (this.content.trim() === "") { return; }
 
-        // Add a todo to the person's user object.
-        user.get("todos").set({
-          content: content,
-          done: done,
-          timestamp: timestamp,
-        });
+      // TODO: Ask for permission to write to the person's app access point.
 
-        // Clear the content input key.
-        this.content = "";
-      }
+      SEA.encrypt(this.content, user._.sea)
+      .then((content) => {
+        SEA.encrypt(false, user._.sea)
+        .then((done) => {
+          SEA.encrypt(Date.now(), user._.sea)
+          .then((timestamp) => {
+            user.get("todos").set({
+              content: content,
+              done: done,
+              timestamp: timestamp,
+            });
+            this.content = "";
+          })
+        })
+      });
     },
     read() {
       // TODO: Ask for permission to read from the person's app access point.
 
-      user.get("todos").map().on(async (todo, key) => {
+      user.get("todos").map().on((todo, key) => {
         if (!todo) {
           for (let i = 0; i < this.todos.length; i++) {
             if (this.todos[i].key === key) {
               this.todos.splice(i, 1);
             }
           }
-        } else {
-          // TODO: Fix duplicate todos showing when adding a new one
 
-          let content = await SEA.decrypt(todo.content, user._.sea);
-          let done = await SEA.decrypt(todo.done, user._.sea);
-          let timestamp = await SEA.decrypt(todo.timestamp, user._.sea);
-    
-          this.todos.push({
-            match: todo,
-            todo: {
-              content: content,
-              done: done,
-              timestamp: timestamp,
-            },
-            key: key,
-          });
-
-          user.get("todos").get(key).get("done").on((data) => {
-            this.todos.forEach(async (item, i) => {
-              if (item.key === key) {
-                let done = await SEA.decrypt(data, user._.sea);
-                this.todos[i].todo.done = done;
-                this.refresh();
-              }
-            });
-          });
-
-          user.get("todos").get(key).get("content").on((data) => {
-            this.todos.forEach(async (item, i) => {
-              if (item.key === key) {
-                let content = await SEA.decrypt(data, user._.sea);
-                this.todos[i].todo.content = content;
-                this.refresh();
-              }
-            });
-          });
+          this.refresh();
+          return;
         }
+        
+        // TODO: Fix duplicate todos showing when adding a new one
+        SEA.decrypt(todo.content, user._.sea)
+        .then((content) => {
+          SEA.decrypt(todo.done, user._.sea)
+          .then((done) => {
+            SEA.decrypt(todo.timestamp, user._.sea)
+            .then((timestamp) => {
+              if (this.existsInArray("todos", todo, "match")) { return; }
 
-        this.refresh();
+              this.todos.push({
+                match: todo,
+                todo: {
+                  content: content,
+                  done: done,
+                  timestamp: timestamp,
+                },
+                key: key,
+              });
+
+              user.get("todos").get(key).get("done").on((data) => {
+                this.todos.forEach((item, i) => {
+                  if (item.key === key) {
+                    SEA.decrypt(data, user._.sea)
+                    .then((done) => {
+                      this.todos[i].todo.done = done;
+                      this.refresh();
+                    });
+                  }
+                });
+              });
+    
+              user.get("todos").get(key).get("content").on((data) => {
+                this.todos.forEach((item, i) => {
+                  if (item.key === key) {
+                    SEA.decrypt(data, user._.sea)
+                    .then((content) => {
+                      this.todos[i].todo.content = content;
+                      this.refresh();
+                    });
+                  }
+                });
+              });
+
+              this.refresh();
+            })
+          })
+        });
       });
     },
-    async update(key, sub, value) {
-      let enc = await SEA.encrypt(value, user._.sea);
-      user.get("todos").get(key).get(sub).put(enc);
+    update(key, sub, value) {
+      SEA.encrypt(value, user._.sea)
+      .then((enc) => {
+        user.get("todos").get(key).get(sub).put(enc);
+      });
     },
     delete(key) {
       user.get("todos").get(key).put(null);
     },
+
+    // ! UI Rendering Helpers
     refresh() {
       this.refreshList("todos", (item) => {
         let li = this.createElement("li");

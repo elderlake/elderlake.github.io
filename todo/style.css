@@ -17,6 +17,7 @@ h1 {
   font-weight: 400;
   letter-spacing: 4px;
   font-size: 1.8em;
+  margin-top: 24px;
 }
 
 h2 {
@@ -51,9 +52,6 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   height: 100vh;
   text-align: center;
   font-family: Helvetica, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -63,8 +61,17 @@ button {
   background-color: #fafafa;
   border: 1px solid #e0e0e0;
   border-radius: 3px;
-  padding: 6px;
   text-align: initial;
+  max-width: 500px;
+}
+
+.card.padding {
+  padding: 6px;
+}
+
+.todos {
+  max-height: calc(100vh - 179px);
+  overflow-y: scroll;
 }
 
 .todoitem {
@@ -77,6 +84,7 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 6px;
 }
 
 .todoitem > div {
