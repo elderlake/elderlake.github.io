@@ -49,9 +49,15 @@ button { background-color: #ffffff; }
   border: 1px solid #e0e0e0;
   border-radius: 3px;
   text-align: initial;
-  max-width: 500px;
+  max-width: 100vw;
 
-  &.padding {
+  &.omni {
+    display: grid;
+    grid-template-columns: 1fr 72px 72px;
+    grid-gap: 6px;
+  }
+
+  &.padded {
     padding: 6px;
   }
 }
@@ -65,11 +71,52 @@ button { background-color: #ffffff; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px;
+  padding: 12px;
 
   & > div {
     display: grid;
     grid-template-columns: 12px 1fr;
     grid-gap: 12px;
+    margin-right: 12px;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+
+  &.separated {
+    & > * {
+      margin-bottom: 6px;
+
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+}
+
+.separator {
+  text-align: center;
+  color: #7f7f7f;
+  padding: 12px 0px;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  &:after {
+    content: 'or';
+    letter-spacing: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fafafa;
+    padding: 0px 12px;
   }
 }

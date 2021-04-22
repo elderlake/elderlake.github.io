@@ -18,10 +18,10 @@
         <h1>Welcome, {{ displayName }}!</h1>
         <h2>Your destiny awaits you.</h2>
 
-        <div class="card padding">
+        <div class="card omni padded">
           <input type="text" placeholder="New todo" data-halk="content" data-ref="new">
-          <button onclick="vm.create()">Add Todo</button>
-          <button onclick="vm.logout()">Log Out</button>
+          <button onclick="vm.create()">Submit</button>
+          <button onclick="vm.logout()">Leave</button>
         </div>
 
         <div class="card todos">
@@ -30,14 +30,17 @@
       </div>
 
       <div data-else>
-        <h1>HAL</h1>
-        <h2>Hypermedia Application Library</h2>
+        <h1>TODO</h1>
+        <h2>HAL-powered App</h2>
 
-        <div class="card">
-          <input type="text" placeholder="Alias" data-halk="alias">
-          <input type="password" placeholder="Password" data-halk="password" data-ref="password">
-          <button onclick="vm.login()">Log In</button>
-          <button onclick="vm.register()">Create New Account</button>
+        <div class="card padded">
+          <div class="column separated">
+            <input type="text" placeholder="Alias" data-halk="alias">
+            <input type="password" placeholder="Password" data-halk="password" data-ref="password">
+            <button onclick="vm.login()">Log In</button>
+            <div class="separator"></div>
+            <button onclick="vm.register()">Create New Account</button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-const gun = GUN({ peers: ['https://elderlake.herokuapp.com/gun'] });
+const gun = GUN({ peers: ['http://localhost:8765/gun', 'https://elderlake.herokuapp.com/gun'] });
 const user = gun.user().recall({ sessionStorage: true });
 
 const vm = new ViewModel({
