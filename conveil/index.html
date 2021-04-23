@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Conveil</title>
+    <title>Conveil.com</title>
 
     <link rel="stylesheet" href="./style.css">
   </head>
@@ -40,7 +40,7 @@
 
       <nav>
         <ul class="left">
-          <li>Home</li>
+          <a href="./"><li>Home</li></a>
           <li>Browse</li>
           <li>Music</li>
           <li>Movies</li>
@@ -51,8 +51,10 @@
 
         <ul class="right">
           <ul>
-            <li>Log In</li>
-            <li>Sign Up</li>
+            <a href="./" v-if="name"><li>My Account</li></a>
+            <a href="./" v-else><li>Log In</li></a>
+            <a @click="logout" v-if="name">Log Out</a>
+            <a href="./signups/" v-else><li>Sign Up</li></a>
           </ul>
         </ul>
       </nav>
@@ -102,12 +104,12 @@
                 <button>Sign Up</button>
               </div>
               <div class="authbox__body">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="email" placeholder="Email" v-model="form.email">
+                <input type="password" placeholder="Password" v-model="form.password">
               </div>
               <div class="authbox__footer">
                 <div class="right">
-                  <button>Log In</button>
+                  <button @click="login">Log In</button>
                 </div>
                 <div class="marginb">
                   <input type="checkbox" id="remember">
@@ -161,7 +163,7 @@
 
     <script src="../gun.js"></script>
     <script src="../sea.js"></script>
-    <script src="../hal.js"></script>
+    <script src="../vue.global.js"></script>
     <script src="./main.js"></script>
   </body>
 </html>

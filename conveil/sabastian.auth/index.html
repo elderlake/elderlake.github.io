@@ -40,7 +40,7 @@
 
       <nav>
         <ul class="left">
-          <li>Home</li>
+          <a href="../"><li>Home</li></a>
           <li>Browse</li>
           <li>Music</li>
           <li>Movies</li>
@@ -51,8 +51,8 @@
 
         <ul class="right">
           <ul>
-            <li>Log In</li>
-            <li>Sign Up</li>
+            <a href="../"><li>Log In</li></a>
+            <a href="../signups/"><li>Sign Up</li></a>
           </ul>
         </ul>
       </nav>
@@ -70,11 +70,12 @@
 
               <div class="right">
                 <p>":-)"</p>
-                <p>Male</p>
-                <p>25 years old</p>
-                <p>Hollywood, MARYLAND United States</p>
-                <p>Last Login:</p>
-                <p>4/22/2021</p>
+                <div>
+                  <p>Male</p>
+                  <p>25 years old</p>
+                  <p>Hollywood, MARYLAND United States</p>
+                </div>
+                <p>Last Login: 4/22/2021</p>
               </div>
             </div>
 
@@ -100,7 +101,9 @@
             </div>
 
             <div class="audio">
-              <h4>NF | I Miss the Days When</h4>
+              <div class="marquee">
+                <h4>NF - I Miss the Days When</h4>
+              </div>
               <audio src="../music.m4a" controls></audio>
             </div>
           </div>
@@ -145,6 +148,15 @@
                 <p>I'd like to meet people who educate, inspire or entertain me... I have a few close friends I've known all my life. I'd like to make more.</p>
               </div>
             </div>
+
+            <div class="card">
+              <div class="card__header">
+                <span>Sabastian's Friends</span>
+              </div>
+              <div class="card__body">
+                <h4>Sabastian has 42 friends.</h4>
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -173,7 +185,7 @@
 
     <script src="../../gun.js"></script>
     <script src="../../sea.js"></script>
-    <script src="../../hal.js"></script>
+    <script src="../../vue.global.js"></script>
     <script src="../main.js"></script>
   </body>
 </html>

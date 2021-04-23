@@ -40,7 +40,7 @@
 
       <nav>
         <ul class="left">
-          <li>Home</li>
+          <a href="../"><li>Home</li></a>
           <li>Browse</li>
           <li>Music</li>
           <li>Movies</li>
@@ -51,8 +51,10 @@
 
         <ul class="right">
           <ul>
-            <li>Log In</li>
-            <li>Sign Up</li>
+            <a href="../" v-if="name"><li>My Account</li></a>
+            <a href="../" v-else><li>Log In</li></a>
+            <a href="../" v-if="name"><li>Log Out</li></a>
+            <a href="./"><li>Sign Up</li></a>
           </ul>
         </ul>
       </nav>
@@ -66,13 +68,50 @@
               </div>
 
               <div class="card__body">
-                <input type="email" placeholder="Email Address">
-                <input type="password" placeholder="Password">
-                <input type="text" placeholder="Full Name">
-                <select><option>Month</option></select>
-                <select><option>Day</option></select>
-                <select><option>Year</option></select>
-                <button>Signup Free</button>
+                <div class="input mt mb">
+                  <span>🙂</span>
+                  <input type="email" placeholder="Email Address" v-model="form.email">
+                </div>
+
+                <div class="input mb">
+                  <span>🔑</span>
+                  <input type="password" placeholder="Password" v-model="form.password">
+                </div>
+
+                <div class="input mb">
+                  <span>🔐</span>
+                  <input type="text" placeholder="Full Name" v-model="form.name">
+                </div>
+                
+                <div class="input mb">
+                  <span>🔐</span>
+                  <div class="input__label">Birthday:</div>
+                  <select v-model="form.month">
+                    <option>Month</option>
+                    <option v-for="month in resource.months">{{ month }}</option>
+                  </select>
+                  <select v-model="form.day">
+                    <option>Day</option>
+                    <option v-for="day in resource.days[form.month]">{{ day }}</option>
+                  </select>
+                  <select v-model="form.year">
+                    <option>Year</option>
+                    <option v-for="year in resource.years">{{ year }}</option>
+                  </select>
+                </div>
+
+                <div class="input mb">
+                  <span>🔐</span>
+                  <div class="input__label">Gender:</div>
+                  <fieldset id="gender">
+                    <input type="radio" name="gender" id="female">
+                    <label for="female">👩 Female</label>
+                    <input type="radio" name="gender" id="male">
+                    <label for="male">🧔 Male</label>
+                  </fieldset>
+                </div>
+
+                <button @click="register">Signup Free</button>
                 <p>By clicking Sign Up, you agree to Conveil <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</p>
                 <hr>
                 <p><strong>We do not spam.</strong> Conveil understands that user privacy is the key to our success. We will email you the Conveil newsletter, notifications, exclusives, and product updates, unless you opt out of these communications.</p>
@@ -131,7 +170,7 @@
 
     <script src="../../gun.js"></script>
     <script src="../../sea.js"></script>
-    <script src="../../hal.js"></script>
-    <script src="../main.js"></script>
+    <script src="../../vue.global.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
