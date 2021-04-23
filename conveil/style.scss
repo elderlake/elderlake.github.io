@@ -1,8 +1,10 @@
 *, *::before, *::after { box-sizing: border-box; }
-body, h1, h2, h3, h4, h5, h6, ul { margin: 0; }
+body, h1, h2, h3, h4, h5, h6, p, ul { margin: 0; }
+ul { list-style-type: none; }
+ul { padding: 0; }
 
 body {
-  background-color: #fafafa;
+  background-color: #f0f0f0;
 }
 
 #app {
@@ -12,12 +14,15 @@ body {
 .wrapper {
   margin: 0 auto;
   width: 960px;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  background-color: #ffffff;
 }
 
 header {
   background-color: #b31942;
   font-size: 0.7em;
-  padding: 12px;
+  padding: 24px;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
@@ -27,20 +32,47 @@ header {
     display: flex;
 
     h1 {
-      margin-left: 6px;
-      font-weight: 500;
-      letter-spacing: 1px;
+      margin-left: 8px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+  }
+
+  button {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    padding: 6px 12px;
+  }
+}
+.header__right {
+  display: flex;
+
+  .select {
+    background-color: #ffffff;
+    margin-right: 12px;
+    border-radius: 3px;
+    overflow: hidden;
+    padding-right: 6px;
+
+    input, select {
+      border: none;
+      background-color: transparent;
+      padding: 6px;
+    }
+
+    select {
+      border-left: 1px solid #e0e0e0;
     }
   }
 }
 
 nav {
   background-color: #ffffff;
-  border-left: 1px solid #eeeeee;
-  border-right: 1px solid #eeeeee;
   display: flex;
   justify-content: space-between;
   font-size: 0.9em;
+  border-bottom: 1px solid #e0e0e0;
 
   ul {
     list-style-type: none;
@@ -48,33 +80,32 @@ nav {
     display: flex;
 
     li {
-      padding: 5px 10px;
+      padding: 12px 24px;
+      background-color: #ffffff;
+      transition: transform 0.1s, border 0.1s, box-shadow 0.1s ease-in-out;
 
       &:hover {
-        background-color: #f6f6f6;
         cursor: pointer;
+        transform: scale(1.1);
+        border-right: 1px solid transparent !important;
+        border-left: 1px solid transparent !important;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
       }
     }
     
     &.left {
-      li { border-right: 1px solid #eeeeee; }
+      li { border-right: 1px solid #e0e0e0; }
     }
     &.right {
-      li { border-left: 1px solid #eeeeee; }
+      li { border-left: 1px solid #e0e0e0; }
     }
   }
-}
-
-main {
-  background-color: #ffffff;
-  border-left: 1px solid #eeeeee;
-  border-right: 1px solid #eeeeee;
 }
 
 .hero {
   height: 250px;
   background-color: #f6f6f6;
-  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .columns {
@@ -85,7 +116,7 @@ main {
 }
 
 .card {
-  border: 1px solid #eeeeee;
+  border: 1px solid #e0e0e0;
   padding: 6px;
   border-radius: 3px;
 
@@ -111,6 +142,7 @@ main {
 
     ul {
       margin: 24px 0px 48px 0px;
+      font-size: 0.9em;
     }
   }
 
@@ -139,9 +171,7 @@ footer {
   background-color: #f6f6f6;
   font-size: 0.8em;
   text-align: center;
-  border-left: 1px solid #eeeeee;
-  border-right: 1px solid #eeeeee;
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid #e0e0e0;
 
   ul {
     list-style-type: none;
@@ -166,6 +196,11 @@ footer {
 }
 
 .authbox {
+  padding: 6px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+
+
   &__header {
     button {
       background: none;
@@ -182,30 +217,31 @@ footer {
     }
   }
   &__body {
-    padding: 12px;
+    padding: 24px 24px 0px 24px;
     background-color: #0a3161;
     color: white;
+    border-top-right-radius: 3px;
 
-    & > div {
-      display: grid;
-      grid-template-columns: 74px 1fr;
-      font-size: 0.9em;
-      grid-gap: 12px;
+    input {
+      width: 100%;
       margin-bottom: 12px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      & > *:first-child {
-        text-align: right;
-      }
+      padding: 6px;
     }
   }
   &__footer {
     background-color: #0a3161;
-    padding: 12px;
+    padding: 0px 24px 24px 24px;
     color: #ffffff;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    
+    button {
+      margin-bottom: 6px;
+    }
+
+    .marginb {
+      margin-bottom: 24px;
+    }
 
     a {
       color: inherit;
@@ -221,4 +257,123 @@ footer {
 
 .margin {
   margin-top: 12px;
+}
+
+.form {
+  input {
+    width: 100%;
+    padding: 6px;
+  }
+
+  select {
+    padding: 6px;
+  }
+
+  p {
+    font-size: 0.7em;
+  }
+}
+
+.profile {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 368px 1fr;
+  grid-gap: 24px;
+
+  .profile__column {
+    .audio {
+      background-color: rgb(244, 244, 244);
+      border-radius: 3px;
+
+      h4 {
+        font-weight: 400;
+        padding: 12px 12px 0px 12px;
+      }
+
+      audio {
+        width: 100%;
+      }
+    }
+
+    .profile__info {
+      display: grid;
+      grid-template-columns: 192px 128px;
+      grid-gap: 12px;
+      margin-bottom: 24px;
+
+      h2 {
+        font-size: 1.2em;
+      }
+
+      img {
+        width: 192px;
+        height: 192px;
+        object-fit: cover;
+      }
+    }
+
+    .profile__contact {
+      border: 1px solid #e0e0e0;
+      border-radius: 3px;
+      padding: 6px;
+      margin-bottom: 24px;
+
+      & > div {
+        background-color: #b31942;
+        color: #ffffff;
+        padding: 12px;
+        border-radius: 3px;
+      }
+
+      & > ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 12px;
+      }
+    }
+
+    .profile__url {
+      border-radius: 3px;
+      border: 1px solid #e0e0e0;
+      padding: 18px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      margin-bottom: 24px;
+
+      &.blurbs {
+        p {
+          font-size: 0.9em;
+          margin-top: 12px;
+        }
+
+        h4 {
+          margin-top: 24px;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+
+      &__body {
+        &.center {
+          text-align: center;
+        }
+
+        h2 {
+          font-size: 1.2em;
+        }
+
+        ul {
+          margin: 0;
+
+          li {
+            margin-bottom: 12px;
+          }
+        }
+      }
+    }
+  }
 }

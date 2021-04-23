@@ -21,17 +21,19 @@
           <h1>conveil</h1>
         </div>
 
-        <div>
-          <input type="text">
-          <select>
-            <option>People</option>
-            <option>Conveil</option>
-            <option>Web</option>
-            <option>Music</option>
-            <option>Video</option>
-            <option>Images</option>
-            <option>Games</option>
-          </select>
+        <div class="header__right">
+          <div class="select">
+            <input type="text">
+            <select>
+              <option>People</option>
+              <option>Conveil</option>
+              <option>Web</option>
+              <option>Music</option>
+              <option>Video</option>
+              <option>Images</option>
+              <option>Games</option>
+            </select>
+          </div>
           <button>Search</button>
         </div>
       </header>
@@ -40,11 +42,9 @@
         <ul class="left">
           <li>Home</li>
           <li>Browse</li>
-          <li>Find Friends</li>
           <li>Music</li>
           <li>Movies</li>
-          <li>Video</li>
-          <li>Games</li>
+          <li>Videos</li>
           <li>Events</li>
           <li>More</li>
         </ul>
@@ -102,20 +102,14 @@
                 <button>Sign Up</button>
               </div>
               <div class="authbox__body">
-                <div>
-                  <label for="email">Email:</label>
-                  <input type="email" id="email">
-                </div>
-                <div>
-                  <label for="password">Password:</label>
-                  <input type="password" id="password">
-                </div>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
               </div>
               <div class="authbox__footer">
                 <div class="right">
                   <button>Log In</button>
                 </div>
-                <div>
+                <div class="marginb">
                   <input type="checkbox" id="remember">
                   <label for="remember">Keep me logged in</label>
                 </div>
