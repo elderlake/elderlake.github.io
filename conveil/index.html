@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Conveil.com</title>
+    <title>Conveil</title>
 
     <link rel="stylesheet" href="./style.css">
   </head>
@@ -41,25 +41,39 @@
       <nav>
         <ul class="left">
           <a href="./"><li>Home</li></a>
-          <li>Browse</li>
+          <li>Browse People</li>
+          <li>Find Friends</li>
           <li>Music</li>
-          <li>Movies</li>
-          <li>Videos</li>
+          <li>Video</li>
+          <li>Games</li>
           <li>Events</li>
           <li>More</li>
         </ul>
 
         <ul class="right">
           <ul>
-            <a href="./" v-if="name"><li>My Account</li></a>
-            <a href="./" v-else><li>Log In</li></a>
-            <a @click="logout" v-if="name">Log Out</a>
+            <a href="./"><li>Safety</li></a>
+            <a href="./"><li>Privacy</li></a>
+            <a href="#" @click="logout" v-if="name"><li>Log Out</li></a>
             <a href="./signups/" v-else><li>Sign Up</li></a>
           </ul>
         </ul>
       </nav>
 
-      <main>
+      <main class="padded" v-if="name">
+        <div class="column">
+          <div class="row space-between align-center mb">
+            <h2>Hello, {{ name }}!</h2>
+            <span>🌈 Page Themes (18)</span>
+          </div>
+
+          <div class="row space-between align-center mt">
+            <span><a href="#">Pick your Conveil URL</a>! [<a href="#">Edit Profile</a>]</span>
+            <span>Friday, April 23, 2021 8:43 AM</span>
+          </div>
+        </div>
+      </main>
+      <main v-else>
         <div class="hero"></div>
 
         <div class="columns">
@@ -111,8 +125,8 @@
                 <div class="right">
                   <button @click="login">Log In</button>
                 </div>
-                <div class="marginb">
-                  <input type="checkbox" id="remember">
+                <div class="checkbox marginb">
+                  <input type="checkbox" id="remember" v-model="form.remember">
                   <label for="remember">Keep me logged in</label>
                 </div>
 

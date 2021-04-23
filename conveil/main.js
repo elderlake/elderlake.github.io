@@ -8,6 +8,7 @@ let vm =Vue.createApp({
       form: {
         email: "",
         password: "",
+        remember: false,
       },
     }
   },

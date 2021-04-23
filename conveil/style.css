@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Righteous&display=swap");
 *, *::before, *::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -15,12 +16,17 @@ ul {
   padding: 0;
 }
 
+a {
+  color: #0a3161;
+  text-decoration: none;
+}
+
 body {
   background-color: #f0f0f0;
 }
 
 #app {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Raleway', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .input {
@@ -88,12 +94,112 @@ body {
           box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
 }
 
+.column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.row.align-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row.space-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.padded {
+  padding: 24px;
+}
+
 .mb {
   margin-bottom: 6px;
 }
 
 .mt {
   margin-top: 6px;
+}
+
+.titlebar {
+  border-bottom: 1px solid #e0e0e0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 12px 24px;
+}
+
+.titlebar__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.titlebar__title h2 {
+  font-size: 1.4em;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.titlebar__links {
+  text-align: right;
+}
+
+.titlebar__links ul li a {
+  text-decoration: none;
+}
+
+.edit {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 240px 1fr;
+      grid-template-columns: 240px 1fr;
+}
+
+.edit__nav {
+  background-color: #f6f6f6;
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 24px;
+}
+
+.edit__nav ul li {
+  margin-bottom: 24px;
+}
+
+.edit__nav ul li:last-child {
+  margin-bottom: 0px;
+}
+
+.edit__nav ul li a {
+  text-decoration: none;
+}
+
+.edit__form h3 {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 24px;
 }
 
 .wrapper {
@@ -104,10 +210,52 @@ body {
   background-color: #ffffff;
 }
 
+table {
+  width: 100%;
+}
+
+table tr td {
+  padding: 6px;
+  border-radius: 3px;
+}
+
+table tr td img {
+  display: block;
+  width: 128px;
+  margin: 0 auto;
+}
+
+table tr td:first-child {
+  background-color: #0a3161;
+  text-align: center;
+  color: #ffffff;
+}
+
+table tr td:first-child a {
+  color: inherit;
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+
+table tr td:last-child {
+  background-color: #ffffff;
+  vertical-align: top;
+}
+
+.friend {
+  text-align: center;
+  width: 128px;
+}
+
+.friend img {
+  width: 128px;
+  display: block;
+}
+
 header {
   background-color: #b31942;
   font-size: 0.7em;
-  padding: 24px;
+  padding: 12px;
   color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -128,8 +276,9 @@ header .logo {
 
 header .logo h1 {
   margin-left: 8px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 2px;
+  font-family: "Righteous";
 }
 
 header button {
@@ -171,7 +320,6 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-size: 0.9em;
   border-bottom: 1px solid #e0e0e0;
 }
 
@@ -184,8 +332,9 @@ nav ul {
 }
 
 nav ul li {
-  padding: 12px 24px;
+  padding: 6px;
   background-color: #ffffff;
+  font-size: 0.8em;
   -webkit-transition: border 0.1s, -webkit-transform 0.1s, -webkit-box-shadow 0.1s ease-in-out;
   transition: border 0.1s, -webkit-transform 0.1s, -webkit-box-shadow 0.1s ease-in-out;
   transition: transform 0.1s, border 0.1s, box-shadow 0.1s ease-in-out;
@@ -198,8 +347,8 @@ nav ul li:hover {
           transform: scale(1.1);
   border-right: 1px solid transparent !important;
   border-left: 1px solid transparent !important;
-  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.35);
+          box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.35);
 }
 
 nav ul.left li {
@@ -356,6 +505,11 @@ footer span {
 
 .authbox__footer button {
   margin-bottom: 6px;
+  background: #ffffff;
+  border: none;
+  padding: 6px;
+  border-radius: 3px;
+  font-family: inherit;
 }
 
 .authbox__footer .marginb {
@@ -528,5 +682,86 @@ footer span {
 
 .profile .profile__column .card__body ul li {
   margin-bottom: 12px;
+}
+
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+  input[type='checkbox'] {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    height: 19px;
+    width: 19px;
+    outline: none;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0;
+    border: 1px solid var(--bc, #BBC1E1);
+    background: var(--b, rgba(0, 0, 0, 0.1));
+    border-radius: 7px;
+    -webkit-transition: background .1s, border-color .1s, -webkit-box-shadow .1s;
+    transition: background .1s, border-color .1s, -webkit-box-shadow .1s;
+    transition: background .1s, border-color .1s, box-shadow .1s;
+    transition: background .1s, border-color .1s, box-shadow .1s, -webkit-box-shadow .1s;
+  }
+  input[type='checkbox']:after {
+    content: '';
+    display: block;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 5px;
+    height: 9px;
+    border: 2px solid #ffffff;
+    border-top: 0;
+    border-left: 0;
+    left: 6px;
+    top: 3px;
+    -webkit-transform: rotate(var(--r, 20deg));
+            transform: rotate(var(--r, 20deg));
+    opacity: var(--o, 0);
+    -webkit-transition: opacity var(--d-o, 0.1s), -webkit-transform var(--d-t, 0.1s) var(--d-t-e, ease);
+    transition: opacity var(--d-o, 0.1s), -webkit-transform var(--d-t, 0.1s) var(--d-t-e, ease);
+    transition: transform var(--d-t, 0.1s) var(--d-t-e, ease), opacity var(--d-o, 0.1s);
+    transition: transform var(--d-t, 0.1s) var(--d-t-e, ease), opacity var(--d-o, 0.1s), -webkit-transform var(--d-t, 0.1s) var(--d-t-e, ease);
+  }
+  input[type='checkbox']:checked {
+    --b: #b31942;
+    --bc: #ffffff;
+    --d-o: .1s;
+    --d-t: .1s;
+    --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+    --r: 43deg;
+    --o: 1;
+  }
+  input[type='checkbox']:disabled {
+    --b: #F6F8FF;
+    cursor: not-allowed;
+    opacity: .9;
+  }
+  input[type='checkbox']:disabled:checked {
+    --b: #E1E6F9;
+    --bc: #BBC1E1;
+  }
+  input[type='checkbox']:hover:not(:checked):not(:disabled) {
+    --bc: #e94056;
+  }
+  input[type='checkbox']:focus {
+    -webkit-box-shadow: 0 0 0 1px #ffffff;
+            box-shadow: 0 0 0 1px #ffffff;
+  }
+  input[type='checkbox'] + label {
+    font-size: 0.9em;
+    margin-left: 6px;
+  }
+}
+
+.checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */
