@@ -1,4 +1,4 @@
-const gun = GUN({ peers: ['http://localhost:8765/gun', 'https://elderlake.herokuapp.com/gun'] });
+const gun = GUN({ peers: ['http://localhost:8765/gun'] });
 const user = gun.user().recall({ sessionStorage: true });
 
 let vm =Vue.createApp({
@@ -9,9 +9,10 @@ let vm =Vue.createApp({
         email: "",
         password: "",
         name: "",
-        month: "Month",
-        day: "Day",
-        year: "Year",
+        m: "Month",
+        d: "Day",
+        y: "Year",
+        gender: "Female",
       },
       resource: {
         months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -22,23 +23,38 @@ let vm =Vue.createApp({
   },
   methods: {
     register() {
-      let email = this.form.email;
+      let email = this.form.email.toLowerCase();
       let password = this.form.password;
       let name = this.form.name;
-      let month = this.form.month;
-      let day = this.form.day;
-      let year = this.form.year;
-      let birthday = new Date(`${month} ${day}, ${year} 12:00:00`);
+      let birthday = `${this.form.m} ${this.form.d}, ${this.form.y} 12:00:00`;
+      let gender = this.form.gender;
 
-      console.log(email, password, name, birthday)
-      // user.create(this.alias.toLowerCase(), this.password);
+      console.log("Creating:", email, password, name, birthday, gender);
+
+      user.create(email, password, (ack) => {
+        console.log("Create ack:", ack);
+
+        user.auth(email, password, (ack) => {
+          console.log("Auth ack:", ack);
+
+          SEA.encrypt(name, user._.sea).then((ename) => {
+            SEA.encrypt(birthday, user._.sea).then((ebirthday) => {
+              SEA.encrypt(gender, user._.sea).then((egender) => {
+                user.get("profile").set({
+                  name: ename,
+                  birthday: ebirthday,
+                  gender: egender,
+                });
+              });
+            });
+          });
+        });
+      });
     },
     logout() { user.leave(); },
   },
 }).mount('#app')
 
 gun.on("auth", () => {
-  user.once((u) => {
-    vm.name = u.alias[0].toUpperCase() + u.alias.slice(1, u.alias.length)
-  });
+  window.location.href = '../';
 });

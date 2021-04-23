@@ -1,7 +1,7 @@
 const gun = GUN({ peers: ['http://localhost:8765/gun', 'https://elderlake.herokuapp.com/gun'] });
 const user = gun.user().recall({ sessionStorage: true });
 
-let vm =Vue.createApp({
+let vm = Vue.createApp({
   data() {
     return {
       name: "",
@@ -13,8 +13,13 @@ let vm =Vue.createApp({
     }
   },
   methods: {
-    login() { user.auth(this.alias.toLowerCase(), this.password); },
-    logout() { user.leave(); },
+    login() {
+      let email = this.form.email.toLowerCase();
+      let password = this.form.password;
+
+      user.auth(email, password);
+    },
+    logout() { user.leave(); this.name = ""; },
   },
 }).mount('#app')
 

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&family=Righteous&display=swap");
 *, *::before, *::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -8,25 +8,186 @@ body, h1, h2, h3, h4, h5, h6, p, ul {
   margin: 0;
 }
 
-ul {
-  list-style-type: none;
-}
-
-ul {
-  padding: 0;
-}
-
 a {
   color: #0a3161;
   text-decoration: none;
+  font-weight: 700;
 }
 
 body {
   background-color: #f0f0f0;
+  line-height: 1.2em;
 }
 
 #app {
   font-family: 'Raleway', Tahoma, Geneva, Verdana, sans-serif;
+  width: 960px;
+  margin: 0 auto;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  background-color: #ffffff;
+}
+
+header .logo {
+  margin: 10px 0px;
+  padding: 6px 0px;
+}
+
+.logo {
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+  font-size: 0.7em;
+}
+
+.logo .svg {
+  width: 24px;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo h1 {
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: "Righteous";
+}
+
+.terms {
+  width: 630px;
+  margin: 0 auto;
+  font-family: "Raleway";
+}
+
+.terms__header {
+  background-color: #b31942;
+  margin: 12px 0px;
+  height: 79px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 24px 24px 12px 24px;
+  color: #ffffff;
+}
+
+.terms__body {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 24px;
+  margin-bottom: 12px;
+}
+
+.terms__body strong {
+  color: #0a3161;
+}
+
+.terms__body p {
+  margin-bottom: 24px;
+}
+
+.terms__body ol li {
+  margin-bottom: 24px;
+}
+
+.terms__body ol li ol {
+  margin-top: 24px;
+}
+
+.module {
+  margin-bottom: 1em;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  padding: 0.5em;
+  border-radius: 6px;
+}
+
+.module__header {
+  padding: .8em .8em .8em .8em;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 0 .5em;
+  background-color: #b31942;
+}
+
+.module__body h3 {
+  color: #333333;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 10px 5px;
+}
+
+.module__body ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.module__body ul li {
+  color: #333333;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 5px;
+}
+
+.module__body .profile-types li {
+  padding: 0px 0px 10px 0px;
+}
+
+.module__body .profile-types li:nth-child(2) {
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding-top: 10px;
+}
+
+.module__body .profile-types li:nth-child(3) {
+  padding-top: 10px;
+}
+
+.signupform {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 160px 1fr;
+      grid-template-columns: 160px 1fr;
+  grid-gap: 10px;
+}
+
+.starbutton {
+  background-color: #0a3161;
+  color: #ffffff;
+  padding: 6px 12px;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.fontnormal {
+  font-size: 0.8em;
+}
+
+.fontsmall {
+  font-size: 0.7em;
 }
 
 .input {
@@ -38,13 +199,18 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 6px 6px 6px 12px;
-  border-radius: 3px;
+  padding: 3px 6px;
 }
 
 .input__label {
-  padding: 0px 12px;
-  width: 80px;
+  padding-left: 6px;
+  width: 72px;
+  font-size: 13px;
+  color: #777777;
+}
+
+.input img {
+  height: 21px;
 }
 
 .input input {
@@ -52,18 +218,17 @@ body {
   background-color: transparent;
   padding: 6px;
   outline: none;
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
+  border: none;
   border-radius: 3px;
-  margin-left: 12px;
   width: 100%;
+  font-family: inherit;
 }
 
 .input select {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   padding: 6px;
-  margin-left: 12px;
+  margin-right: 12px;
   border-radius: 3px;
 }
 
@@ -80,6 +245,7 @@ body {
   display: block;
   padding: 3px 6px;
   margin-right: 12px;
+  font-size: 13px;
 }
 
 .input fieldset input {
@@ -202,14 +368,6 @@ body {
   padding: 24px;
 }
 
-.wrapper {
-  margin: 0 auto;
-  width: 960px;
-  border-left: 1px solid #e0e0e0;
-  border-right: 1px solid #e0e0e0;
-  background-color: #ffffff;
-}
-
 table {
   width: 100%;
 }
@@ -255,7 +413,7 @@ table tr td:last-child {
 header {
   background-color: #b31942;
   font-size: 0.7em;
-  padding: 12px;
+  padding: 0px 14px;
   color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -268,48 +426,34 @@ header {
           align-items: center;
 }
 
-header .logo {
+header .header__right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-header .logo h1 {
-  margin-left: 8px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  font-family: "Righteous";
+header .header__right .select {
+  background-color: #ffffff;
+  margin-right: 12px;
+}
+
+header input, header select {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+header select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-left: 1px solid #e0e0e0;
+  padding: 4px 6px;
 }
 
 header button {
   background-color: #ffffff;
   border: none;
-  border-radius: 3px;
-  padding: 6px 12px;
-}
-
-.header__right {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.header__right .select {
-  background-color: #ffffff;
-  margin-right: 12px;
-  border-radius: 3px;
-  overflow: hidden;
-  padding-right: 6px;
-}
-
-.header__right .select input, .header__right .select select {
-  border: none;
-  background-color: transparent;
-  padding: 6px;
-}
-
-.header__right .select select {
-  border-left: 1px solid #e0e0e0;
 }
 
 nav {
@@ -332,8 +476,9 @@ nav ul {
 }
 
 nav ul li {
-  padding: 6px;
+  padding: 10px 12px;
   background-color: #ffffff;
+  line-height: 0.8em;
   font-size: 0.8em;
   -webkit-transition: border 0.1s, -webkit-transform 0.1s, -webkit-box-shadow 0.1s ease-in-out;
   transition: border 0.1s, -webkit-transform 0.1s, -webkit-box-shadow 0.1s ease-in-out;
@@ -682,6 +827,10 @@ footer span {
 
 .profile .profile__column .card__body ul li {
   margin-bottom: 12px;
+}
+
+.form p {
+  font-size: 0.9em;
 }
 
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {

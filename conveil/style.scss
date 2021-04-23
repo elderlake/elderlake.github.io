@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&family=Righteous&display=swap');
 
 $red: #b31942;
 $white: #ffffff;
@@ -6,20 +6,174 @@ $blue: #0a3161;
 
 *, *::before, *::after { box-sizing: border-box; }
 body, h1, h2, h3, h4, h5, h6, p, ul { margin: 0; }
-ul { list-style-type: none; }
-ul { padding: 0; }
 
 a {
   color: $blue;
   text-decoration: none;
+  font-weight: 700;
 }
 
 body {
   background-color: #f0f0f0;
+  line-height: 1.2em;
 }
 
 #app {
   font-family: 'Raleway', Tahoma, Geneva, Verdana, sans-serif;
+  width: 960px;
+  margin: 0 auto;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  background-color: #ffffff;
+}
+
+header .logo {
+  margin: 10px 0px;
+  padding: 6px 0px;
+}
+
+.logo {
+  box-sizing: initial;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  font-size: 0.7em;
+
+  .svg {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-family: "Righteous";
+  }
+}
+
+.terms {
+  width: 630px;
+  margin: 0 auto;
+  font-family: "Raleway";
+
+  &__header {
+    background-color: $red;
+    margin: 12px 0px;
+    height: 79px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 24px 24px 12px 24px;
+    color: #ffffff;
+  }
+
+  &__body {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 24px;
+    margin-bottom: 12px;
+
+    strong {
+      color: $blue;
+    }
+
+    p {
+      margin-bottom: 24px;
+    }
+
+    ol {
+      li {
+        margin-bottom: 24px;
+
+        ol {
+          margin-top: 24px;
+        }
+      }
+    }
+  }
+}
+
+.module {
+  margin-bottom: 1em;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  padding: 0.5em;
+  border-radius: 6px;
+
+  &__header {
+    padding: .8em .8em .8em .8em;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 .5em;
+    background-color: $red;
+  }
+
+  &__body {
+    h3 {
+      color: #333333;
+      font-size: 13px;
+      font-weight: bold;
+      margin: 10px 5px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        color: #333333;
+        font-size: 12px;
+        line-height: 16px;
+        margin: 5px;
+        // padding: 2px 0px 3px 25px;
+      }
+    }
+
+    .profile-types {
+      li {
+        padding: 0px 0px 10px 0px;
+
+        &:nth-child(2) {
+          border-top: 1px solid #e0e0e0;
+          border-bottom: 1px solid #e0e0e0;
+          padding-top: 10px;
+        }
+
+        &:nth-child(3) {
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+.signupform {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  grid-gap: 10px;
+}
+
+.starbutton {
+  background-color: $blue;
+  color: #ffffff;
+  padding: 6px 12px;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.fontnormal {
+  font-size: 0.8em;
+}
+.fontsmall {
+  font-size: 0.7em;
 }
 
 .input {
@@ -27,12 +181,18 @@ body {
   border: 1px solid #e0e0e0;
   display: flex;
   align-items: center;
-  padding: 6px 6px 6px 12px;
-  border-radius: 3px;
+  padding: 3px 6px;
+  // padding: 6px 6px 6px 6px;
 
   &__label {
-    padding: 0px 12px;
-    width: 80px;
+    padding-left: 6px;
+    width: 72px;
+    font-size: 13px;
+    color: #777777;
+  }
+
+  img {
+    height: 21px;
   }
 
   input {
@@ -40,18 +200,17 @@ body {
     background-color: transparent;
     padding: 6px;
     outline: none;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
+    border: none;
     border-radius: 3px;
-    margin-left: 12px;
     width: 100%;
+    font-family: inherit;
   }
 
   select {
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
     padding: 6px;
-    margin-left: 12px;
+    margin-right: 12px;
     border-radius: 3px;
   }
 
@@ -65,6 +224,7 @@ body {
       display: block;
       padding: 3px 6px;
       margin-right: 12px;
+      font-size: 13px;
     }
 
     input {
@@ -78,6 +238,13 @@ body {
     }
   }
 }
+
+
+
+
+
+
+
 
 .column {
   display: flex;
@@ -172,14 +339,6 @@ body {
   }
 }
 
-.wrapper {
-  margin: 0 auto;
-  width: 960px;
-  border-left: 1px solid #e0e0e0;
-  border-right: 1px solid #e0e0e0;
-  background-color: #ffffff;
-}
-
 table {
   width: 100%;
 
@@ -227,49 +386,36 @@ table {
 header {
   background-color: #b31942;
   font-size: 0.7em;
-  padding: 12px;
+  padding: 0px 14px;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center;  
 
-  .logo {
+  .header__right {
     display: flex;
-
-    h1 {
-      margin-left: 8px;
-      font-weight: 400;
-      letter-spacing: 2px;
-      font-family: "Righteous";
+  
+    .select {
+      background-color: #ffffff;
+      margin-right: 12px;
     }
+  }
+
+  input, select {
+    border: none;
+    background-color: transparent;
+    outline: none;
+  }
+
+  select {
+    appearance: none;
+    border-left: 1px solid #e0e0e0;
+    padding: 4px 6px;
   }
 
   button {
     background-color: #ffffff;
     border: none;
-    border-radius: 3px;
-    padding: 6px 12px;
-  }
-}
-.header__right {
-  display: flex;
-
-  .select {
-    background-color: #ffffff;
-    margin-right: 12px;
-    border-radius: 3px;
-    overflow: hidden;
-    padding-right: 6px;
-
-    input, select {
-      border: none;
-      background-color: transparent;
-      padding: 6px;
-    }
-
-    select {
-      border-left: 1px solid #e0e0e0;
-    }
   }
 }
 
@@ -285,8 +431,9 @@ nav {
     display: flex;
 
     li {
-      padding: 6px;
+      padding: 10px 12px;
       background-color: #ffffff;
+      line-height: 0.8em;
       font-size: 0.8em;
       transition: transform 0.1s, border 0.1s, box-shadow 0.1s ease-in-out;
 
@@ -597,6 +744,10 @@ footer {
       }
     }
   }
+}
+
+.form p {
+  font-size: 0.9em;
 }
 
 
