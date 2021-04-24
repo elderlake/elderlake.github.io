@@ -14,6 +14,8 @@ let vm =Vue.createApp({
         y: "Year",
         gender: "Female",
       },
+      isVerifying: false,
+      isUploading: false,
       resource: {
         months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         days: {"Month": 31, "January": 31, "February": 28, "March": 31, "April": 30, "May": 31, "June": 30, "July": 31, "August": 31, "September": 30, "October": 31, "November": 30, "December": 31},
@@ -22,6 +24,13 @@ let vm =Vue.createApp({
     }
   },
   methods: {
+    goVerify() {
+      this.isVerifying = true;
+    },
+    goUpload() {
+      this.isVerifying = false;
+      this.isUploading = true;
+    },
     register() {
       let email = this.form.email.toLowerCase();
       let password = this.form.password;

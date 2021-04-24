@@ -8,17 +8,20 @@
     <title>Conveil</title>
 
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./index.css">
   </head>
 
   <body>
     <div id="app" class="wrapper">
       <header>
         <div class="logo">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="115.43335353820248 178.9554409959646 69.93737417894039 137.88958721264854" height="32">
-            <path fill="#ffffff" d="M170.94 279.73L169.82 276.05L167.84 272.44L165.02 268.88L161.34 265.37L156.81 261.93L151.43 258.53L145.19 255.19L138.1 251.91L182.37 179.96L171.21 283.45L170.94 279.73Z"></path>
-            <path fill="#ffffff" d="M128.62 251.6L132.11 252.64L135.58 253.92L138.88 255.24L141.81 256.45L143.59 257.2L145.33 258.02L147.01 258.92L148.65 259.88L150.25 260.91L151.79 262.02L153.29 263.19L154.74 264.43L156.15 265.74L157.02 266.64L157.79 266.76L120.38 313.85L116.43 260.1L116.7 260.14L116.77 256.17L117.83 253.36L119.71 251.67L122.25 250.93L125.27 250.97L128.62 251.6Z"></path>
-          </svg>
-          <h1>conveil</h1>
+          <div class="logo__mark">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="115.43335353820248 178.9554409959646 69.93737417894039 137.88958721264854" height="24">
+              <path fill="#ffffff" d="M170.94 279.73L169.82 276.05L167.84 272.44L165.02 268.88L161.34 265.37L156.81 261.93L151.43 258.53L145.19 255.19L138.1 251.91L182.37 179.96L171.21 283.45L170.94 279.73Z"></path>
+              <path fill="#ffffff" d="M128.62 251.6L132.11 252.64L135.58 253.92L138.88 255.24L141.81 256.45L143.59 257.2L145.33 258.02L147.01 258.92L148.65 259.88L150.25 260.91L151.79 262.02L153.29 263.19L154.74 264.43L156.15 265.74L157.02 266.64L157.79 266.76L120.38 313.85L116.43 260.1L116.7 260.14L116.77 256.17L117.83 253.36L119.71 251.67L122.25 250.93L125.27 250.97L128.62 251.6Z"></path>
+            </svg>
+          </div>
+          <div class="logo__text">conveil</div>
         </div>
 
         <div class="header__right">
@@ -41,35 +44,83 @@
       <nav>
         <ul class="left">
           <a href="./"><li>Home</li></a>
-          <li>Browse People</li>
-          <li>Find Friends</li>
-          <li>Music</li>
-          <li>Video</li>
-          <li>Games</li>
-          <li>Events</li>
-          <li>More</li>
+          <li disabled>Browse People</li>
+          <li disabled>Find Friends</li>
+          <li disabled>Local</li>
+          <li disabled>Music</li>
+          <li disabled>Video</li>
+          <li disabled>Games</li>
+          <li disabled>Events</li>
+          <li disabled>More</li>
         </ul>
 
         <ul class="right">
           <ul>
-            <a href="./"><li>Safety</li></a>
-            <a href="./"><li>Privacy</li></a>
+            <a href="./" v-if="!name"><li>Safety</li></a>
+            <a href="./" v-if="!name"><li>Privacy</li></a>
+            <a href="./myaccount/" v-else><li>My Account</li></a>
             <a href="#" @click="logout" v-if="name"><li>Log Out</li></a>
             <a href="./signups/" v-else><li>Sign Up</li></a>
           </ul>
         </ul>
       </nav>
 
-      <main class="padded" v-if="name">
-        <div class="column">
-          <div class="row space-between align-center mb">
-            <h2>Hello, {{ name }}!</h2>
-            <span>🌈 Page Themes (18)</span>
+      <main v-if="name">
+
+        <!-- Home Header -->
+        <div class="row space-between padding">
+          <div class="column">
+            <span class="welcome">Hello, {{ name.split(" ")[0] }}!</span>
+            <span class="tagline">{{ profile.tagline }}</span>
+            <div class="row mood">
+              <span><strong>Mood:</strong> {{ profile.mood }}</span>
+              <span class="note">Posted 1 minute ago</span>
+            </div>
           </div>
 
-          <div class="row space-between align-center mt">
-            <span><a href="#">Pick your Conveil URL</a>! [<a href="#">Edit Profile</a>]</span>
-            <span>Friday, April 23, 2021 8:43 AM</span>
+          <div class="column justify-end text-right">
+            <span class="themes"><a disabled>🌈 Page Themes</a></span>
+            <span class="url"><a disabled>Pick your Conveil URL!</a></span>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="grid">
+          <div class="hub">
+            <div class="hub__avatar">
+              <img src="./incognito.jpeg" alt="">
+            </div>
+  
+            <div class="column">
+              <div class="hub__links">
+                <span><a disabled>Edit Profile</a></span>
+                <span><strong>Photos:</strong> <a disabled>Edit</a> | <a disabled>Upload</a></span>
+                <span><strong>Videos:</strong> <a disabled>Edit</a> | <a disabled>Upload</a></span>
+                <span><a disabled>Manage Calendar</a></span>
+                <span><a disabled>Manage Blog</a></span>
+                <span><a disabled>Manage Reviews</a></span>
+              </div>
+              <select disabled>
+                <option>View My:</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="module wide">
+            <div class="module__header">Conveil Announcement</div>
+
+            <div class="module__body">
+              <div class="person">
+                <img src="./sabastian.auth/IMG_0115.png" alt="">
+                <a href="./sabastian.auth/">Sabastian</a>
+              </div>
+
+              <h4>Latest Update:</h4>
+              <h5>Nov 13, 12:00am PT</h5>
+
+              <p>Conveil has a free new Blackberry mobile phone app! Get Conveil for your Blackberry smartphone and you can enjoy using the best of Conveil including updating status & mood, uploading photos, sending messages and comments. Be the first to get it exclusively at <a href="http://www.conveil.com/blackberry">http://www.conveil.com/blackberry</a> today!</p>
+            </div>
           </div>
         </div>
       </main>
@@ -131,7 +182,7 @@
                 </div>
 
                 <div class="right">
-                  <a href="#">Forgot your password?</a>
+                  <a href="./forgot/">Forgot your password?</a>
                 </div>
               </div>
             </div>
@@ -178,6 +229,6 @@
     <script src="../gun.js"></script>
     <script src="../sea.js"></script>
     <script src="../vue.global.js"></script>
-    <script src="./main.js"></script>
+    <script src="./viewmodels/home.js"></script>
   </body>
 </html>

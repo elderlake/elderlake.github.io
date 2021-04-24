@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Conveil</title>
+
+    <link rel="stylesheet" href="../style.css">
+  </head>
+
+  <body>
+    <div id="app" class="wrapper">
+      <ui-header></ui-header>
+      <ui-nav authenticated="true"></ui-nav>
+
+      <main>
+        <div class="subnav">
+          <div class="logo">
+            <div class="logo__mark">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="115.43335353820248 178.9554409959646 69.93737417894039 137.88958721264854" height="24">
+                <path fill="#b31942" d="M170.94 279.73L169.82 276.05L167.84 272.44L165.02 268.88L161.34 265.37L156.81 261.93L151.43 258.53L145.19 255.19L138.1 251.91L182.37 179.96L171.21 283.45L170.94 279.73Z"></path>
+                <path fill="#0a3161" d="M128.62 251.6L132.11 252.64L135.58 253.92L138.88 255.24L141.81 256.45L143.59 257.2L145.33 258.02L147.01 258.92L148.65 259.88L150.25 260.91L151.79 262.02L153.29 263.19L154.74 264.43L156.15 265.74L157.02 266.64L157.79 266.76L120.38 313.85L116.43 260.1L116.7 260.14L116.77 256.17L117.83 253.36L119.71 251.67L122.25 250.93L125.27 250.97L128.62 251.6Z"></path>
+              </svg>
+            </div>
+          </div>
+  
+          <h1>Forgot Password</h1>
+        </div>
+
+        <p class="form-description">Enter the email address you log in with and we will send you an email that will allow you to reset your password.</p>
+
+        <div class="form-row">
+          <div class="form-left">Email:</div>
+
+          <div class="form-right"><input type="email"></div>
+        </div>
+
+        <div class="form-captcha">
+          <img src="./captcha.jpeg" alt="">
+
+          <p>Please enter the text from the image above:</p>
+          <p>The letters are not case-sensitive.</p>
+          <p>Do not type spaces between the numbers and letters.</p>
+
+          <input type="text">
+
+          <button>Send</button>
+        </div>
+      </main>
+
+      <ui-footer></ui-footer>
+    </div>
+
+    <script src="../../gun.js"></script>
+    <script src="../../sea.js"></script>
+    <script src="../../vue.global.js"></script>
+    <script src="../viewmodels/forgotpassword.js"></script>
+  </body>
+</html>

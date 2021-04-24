@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Signup For Conveil</title>
+
+    <link rel="stylesheet" href="../../style.css">
+  </head>
+
+  <body>
+    <div id="app" class="wrapper">
+      <header>
+        <div class="logo">
+          <div class="logo__mark">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="115.43335353820248 178.9554409959646 69.93737417894039 137.88958721264854" height="24">
+              <path fill="#ffffff" d="M170.94 279.73L169.82 276.05L167.84 272.44L165.02 268.88L161.34 265.37L156.81 261.93L151.43 258.53L145.19 255.19L138.1 251.91L182.37 179.96L171.21 283.45L170.94 279.73Z"></path>
+              <path fill="#ffffff" d="M128.62 251.6L132.11 252.64L135.58 253.92L138.88 255.24L141.81 256.45L143.59 257.2L145.33 258.02L147.01 258.92L148.65 259.88L150.25 260.91L151.79 262.02L153.29 263.19L154.74 264.43L156.15 265.74L157.02 266.64L157.79 266.76L120.38 313.85L116.43 260.1L116.7 260.14L116.77 256.17L117.83 253.36L119.71 251.67L122.25 250.93L125.27 250.97L128.62 251.6Z"></path>
+            </svg>
+          </div>
+          
+          <div class="logo__text">conveil</div>
+        </div>
+
+        <div class="header__right">
+          <div class="select">
+            <input type="text">
+            <select>
+              <option>People</option>
+              <option>Conveil</option>
+              <option>Web</option>
+              <option>Music</option>
+              <option>Video</option>
+              <option>Images</option>
+              <option>Games</option>
+            </select>
+          </div>
+          <button>Search</button>
+        </div>
+      </header>
+
+      <nav>
+        <ul class="left">
+          <a href="../"><li>Home</li></a>
+          <li>Browse People</li>
+          <li>Find Friends</li>
+          <li>Local</li>
+          <li>Music</li>
+          <li>Video</li>
+          <li>Games</li>
+          <li>More</li>
+        </ul>
+
+        <ul class="right">
+          <ul>
+            <a href="../" v-if="name"><li>My Account</li></a>
+            <a href="../../" v-else><li>Log In</li></a>
+            <a @click="logout" v-if="name"><li>Log Out</li></a>
+            <a href="../../signups/" v-else><li>Sign Up</li></a>
+          </ul>
+        </ul>
+      </nav>
+
+      <main>
+        <div class="subnav">
+          <div class="column">
+            <div class="row align-center">
+              <div class="logo">
+                <div class="logo__mark">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="115.43335353820248 178.9554409959646 69.93737417894039 137.88958721264854" height="24">
+                    <path fill="#b31942" d="M170.94 279.73L169.82 276.05L167.84 272.44L165.02 268.88L161.34 265.37L156.81 261.93L151.43 258.53L145.19 255.19L138.1 251.91L182.37 179.96L171.21 283.45L170.94 279.73Z"></path>
+                    <path fill="#0a3161" d="M128.62 251.6L132.11 252.64L135.58 253.92L138.88 255.24L141.81 256.45L143.59 257.2L145.33 258.02L147.01 258.92L148.65 259.88L150.25 260.91L151.79 262.02L153.29 263.19L154.74 264.43L156.15 265.74L157.02 266.64L157.79 266.76L120.38 313.85L116.43 260.1L116.7 260.14L116.77 256.17L117.83 253.36L119.71 251.67L122.25 250.93L125.27 250.97L128.62 251.6Z"></path>
+                  </svg>
+                </div>
+              </div>
+      
+              <h1>Settings: Contact Info</h1>
+            </div>
+
+            <div class="row mt">
+              <ul>
+                <li>Contact Info</li>
+                <li>Account</li>
+                <li>Password</li>
+                <li>Privacy</li>
+                <li>Spam</li>
+                <li>Notifications</li>
+                <li>Applications</li>
+                <li>ConveilID</li>
+                <li>IM</li>
+                <li>Mobile</li>
+                <li>Calendar</li>
+                <li>Miscellaneous</li>
+              </ul>
+            </div>
+
+            <div class="row">
+              <ul>
+                <li>Ad Categories</li>
+                <li>No More CAPTCHAs</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2>General Privacy:</h2>
+
+          <div class="form">
+            <div class="form-row">
+              <div class="form-left">Online Now:</div>
+              <div class="form-right">
+                <input type="checkbox">
+                <label>Show people when I am online</label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-left">Birthday:</div>
+              <div class="form-right">
+                <input type="checkbox">
+                <label>Show my birthday to my friends</label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-left">Profile Viewable By:</div>
+              <div class="form-right">
+                <div>
+                  <input type="radio">
+                  <label>Everyone</label>
+                </div>
+
+                <div>
+                  <input type="radio">
+                  <label>Everyone 18 and over</label>
+                </div>
+
+                <div>
+                  <input type="radio">
+                  <label>My friends only</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-left">Comments:</div>
+              <div class="form-right">
+                <span>Choose who can view <a href="#">your comments page</a>.</span>
+                
+                <div>
+                  <input type="radio">
+                  <label>Anyone can view my comments page</label>
+                </div>
+
+                <div>
+                  <input type="radio">
+                  <label>Anyone 18 and over can view my comments page</label>
+                </div>
+
+                <div>
+                  <input type="radio">
+                  <label>Only my friends can view my comments page</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-left">Friends:</div>
+              <div class="form-right">
+                <span>Choose who can view <a href="#">your friends page</a>. Mutual friends are always p</span>
+
+                <div>
+                  <input type="radio">
+                  <label>Anyone can view my friends page</label>
+                </div>
+
+                <div>
+                  <input type="radio">
+                  <label>Anyone 18 and over can view my friends page</label>
+                </div>
+
+                <div>
+                  <input type="radio">
+                  <label>Only my friends can view my friends page</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-left">Photos:</div>
+              <div class="form-right">
+                <span>Choose who can view <a href="#">your photos page</a>. Set album level privacy in photos.</span>
+
+                <div>
+                  <input type="radio">
+                  <label>Anyone can view my Photos page</label>
+                </div>
+
+                <div>
+                  <input type="radio">
+                  <label>Anyone 18 and over can view my Photos page</label>
+                </div>
+
+                <div>
+                  <input type="radio">
+                  <label>Only my friends can view my Photos page</label>
+                </div>
+
+                <input type="checkbox">
+                <label>Allow my photos to be shared/emailed</label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-left">Status and Mood:</div>
+              <div class="form-right">
+                <span>Choose who can view <a href="#">your Status and Mood page</a>.</span>
+
+                <div>
+                  <input type="radio">
+                  <label>Anyone can view my Status & Mood page</label>
+                </div>
+
+                <div>
+                  <input type="radio">
+                  <label>Anyone 18 and over can view my Status & Mood page</label>
+                </div>
+
+                <div>
+                  <input type="radio">
+                  <label>Only my friends can view my Status & Mood page</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-left">Block Users By Age:</div>
+              <div class="form-right">
+                <input type="checkbox">
+                <label>Allow users under 18 to contact me</label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-left">Block Users:</div>
+              <div class="form-right">Block individual users by clicking "Block User" on their profile. <a href="#">[View list]</a></div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-left"></div>
+              <div class="form-right">
+                <button>Save All Changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <ul>
+          <li>Help</li>
+          <li>Terms</li>
+          <li>Privacy Policy</li>
+          <li>Safety Tips</li>
+          <li>Advertise</li>
+          <li>Developers</li>
+        </ul>
+
+        <ul>
+          <li>Careers</li>
+          <li>Press Room</li>
+          <li>Music</li>
+          <li>Video</li>
+          <li>Sitemap</li>
+        </ul>
+
+        <span>©2021 Conveil, Inc. Made in USA.</span>
+      </footer>
+    </div>
+
+    <script src="../../../gun.js"></script>
+    <script src="../../../sea.js"></script>
+    <script src="../../../vue.global.js"></script>
+    <script src="../../viewmodels/myaccount.js"></script>
+  </body>
+</html>

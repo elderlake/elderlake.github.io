@@ -14,13 +14,14 @@
     <div id="app" class="wrapper">
       <header>
         <div class="logo">
-          <div class="svg">
+          <div class="logo__mark">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="115.43335353820248 178.9554409959646 69.93737417894039 137.88958721264854" height="24">
               <path fill="#ffffff" d="M170.94 279.73L169.82 276.05L167.84 272.44L165.02 268.88L161.34 265.37L156.81 261.93L151.43 258.53L145.19 255.19L138.1 251.91L182.37 179.96L171.21 283.45L170.94 279.73Z"></path>
               <path fill="#ffffff" d="M128.62 251.6L132.11 252.64L135.58 253.92L138.88 255.24L141.81 256.45L143.59 257.2L145.33 258.02L147.01 258.92L148.65 259.88L150.25 260.91L151.79 262.02L153.29 263.19L154.74 264.43L156.15 265.74L157.02 266.64L157.79 266.76L120.38 313.85L116.43 260.1L116.7 260.14L116.77 256.17L117.83 253.36L119.71 251.67L122.25 250.93L125.27 250.97L128.62 251.6Z"></path>
             </svg>
           </div>
-          <h1>conveil</h1>
+          
+          <div class="logo__text">conveil</div>
         </div>
 
         <div class="header__right">
@@ -43,13 +44,14 @@
       <nav>
         <ul class="left">
           <a href="../"><li>Home</li></a>
-          <li>Browse People</li>
-          <li>Find Friends</li>
-          <li>Local</li>
-          <li>Music</li>
-          <li>Video</li>
-          <li>Games</li>
-          <li>More</li>
+          <li disabled>Browse People</li>
+          <li disabled>Find Friends</li>
+          <li disabled>Local</li>
+          <li disabled>Music</li>
+          <li disabled>Video</li>
+          <li disabled>Games</li>
+          <li disabled>Events</li>
+          <li disabled>More</li>
         </ul>
 
         <ul class="right">
@@ -68,56 +70,119 @@
             <div class="module">
               <div class="module__header">Sign Up for Conveil</div>
 
-              <div class="module__body">
-                <div class="input mb">
-                  <img src="../lock.png" alt="">
-                  <input type="email" placeholder="Email Address" v-model="form.email">
+              <div class="module__body" v-if="isUploading">
+                <p class="pad">Now, upload a photo to let friends and family see who you are. You can update this photo anytime.</p>
+
+                <div class="form">
+                  <div class="form-row">
+                    <div class="form-left">Webcam:</div>
+                    <div class="form-right">
+                      <p>To take a photo directly with your webcam, <a href="#">click here</a></p>
+
+                      <p class="text-center">- or -</p>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="input mb">
-                  <span>🔑</span>
-                  <input type="password" placeholder="Password" v-model="form.password">
+                <div class="upload">
+                  <div class="upload__header">Upload Photo</div>
+                  <div class="upload__body">
+                    <input type="file">
+
+                    <div class="row flex-end">
+                      <button>Upload</button>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="input mb">
-                  <img src="../lock.png" alt="">
-                  <input type="text" placeholder="Full Name" v-model="form.name">
-                </div>
-                
-                <div class="input mb">
-                  <img src="../lock.png" alt="">
-                  <div class="input__label">Birthday:</div>
-                  <select v-model="form.m">
-                    <option>Month</option>
-                    <option v-for="month in resource.months">{{ month }}</option>
-                  </select>
-                  <select v-model="form.d">
-                    <option>Day</option>
-                    <option v-for="day in resource.days[form.m]">{{ day }}</option>
-                  </select>
-                  <select v-model="form.y">
-                    <option>Year</option>
-                    <option v-for="year in resource.years">{{ year }}</option>
-                  </select>
+                <div class="row flex-end">
+                  <a href="#">Skip this step</a>
                 </div>
 
-                <div class="input mb">
-                  <img src="../lock.png" alt="">
-                  <div class="input__label">Gender:</div>
-                  <fieldset id="gender">
-                    <input type="radio" name="gender" id="female" value="female" v-model="form.gender">
-                    <label for="female">👩 Female</label>
-                    <input type="radio" name="gender" id="male" value="male" v-model="form.gender">
-                    <label for="male">🧔 Male</label>
-                  </fieldset>
-                </div>
-
-                <p class="row space-between align-center">
-                  <span class="fontnormal">By clicking Sign Up, you agree to Conveil <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</span>
-                  <button @click="register" class="starbutton">Sign Up</button>
-                </p>
                 <hr>
-                <p class="fontsmall"><strong>We do not spam.</strong> Conveil understands that user privacy is the key to our success. We will email you the Conveil newsletter, notifications, exclusives, and product updates, unless you opt out of these communications.</p>
+
+                <ul>
+                  <li>Photos may not contain nudity, violent or offensive material, or copyrighted images. If you violate these terms your account will be deleted.</li>
+
+                  <li>For more information, please read the <a href="#">View Conveil Photo Policy</a></li>
+                </ul>
+              </div>
+              <div class="module__body" v-else-if="isVerifying">
+                <div class="form">
+                  <div class="form-row">
+                    <div class="form-left">Verification:</div>
+                    <div class="form-right">
+                      <div class="form-captcha">
+                        <img src="../forgot/captcha.jpeg" alt="">
+              
+                        <p>Please enter the text from the image above:</p>
+                        <p>The letters are not case-sensitive.</p>
+                        <p>Do not type spaces between the numbers and letters.</p>
+              
+                        <input type="text">
+              
+                        <button @click="goUpload">Continue</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="module__body" v-else>
+                <div class="form">
+                  <div class="form-row">
+                    <div class="form-left">Email Address:</div>
+                    <div class="form-right">
+                      <input type="email">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-left">Password:</div>
+                    <div class="form-right">
+                      <input type="password">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-left">Full Name:</div>
+                    <div class="form-right">
+                      <input type="text">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-left">Date Of Birth:</div>
+                    <div class="form-right">
+                      <input type="date" min="1921-04-24" max="2008-04-24">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-left">Gender:</div>
+                    <div class="form-right">
+                      <fieldset id="gender">
+                        <input type="radio" name="gender" id="female" value="female" v-model="form.gender">
+                        <label for="female">Female</label>
+                        <input type="radio" name="gender" id="male" value="male" v-model="form.gender">
+                        <label for="male">Male</label>
+                      </fieldset>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-left"></div>
+                    <div class="form-right">
+                      <button @click="goVerify">Signup Free</button>
+                      <p>By clicking Sign Up, you agree to Conveil Terms of Use and Privacy Policy.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="form-footnote">
+                  <p class="fontsmall"><strong>We do not spam.</strong> Conveil understands that user privacy is the key to our success. We will email you the Conveil newsletter, notifications, exclusives, and product updates, unless you opt out of these communications.</p>
+                </div>
               </div>
             </div>
           </div>

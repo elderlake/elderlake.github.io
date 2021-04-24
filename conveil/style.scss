@@ -4,6 +4,8 @@ $red: #b31942;
 $white: #ffffff;
 $blue: #0a3161;
 
+@import "styles/subnav";
+
 *, *::before, *::after { box-sizing: border-box; }
 body, h1, h2, h3, h4, h5, h6, p, ul { margin: 0; }
 
@@ -37,9 +39,8 @@ header .logo {
   display: flex;
   align-items: center;
   height: 30px;
-  font-size: 0.7em;
 
-  .svg {
+  &__mark {
     width: 24px;
     height: 24px;
     display: flex;
@@ -47,12 +48,98 @@ header .logo {
     align-items: center;
   }
 
-  h1 {
-    font-weight: 400;
+  &__text {
+    font-size: 2em;
     letter-spacing: 1px;
     font-family: "Righteous";
+    margin-left: 6px;
   }
 }
+
+.omnicard {
+  width: 200px;
+  padding: 6px;
+  border: 1px solid #e0e0e0;
+  background-color: #f6f6f6;
+  font-size: 0.8em;
+  margin-right: 12px;
+
+  a {
+    font-weight: 400;
+  }
+
+  &__avatar {
+    padding: 6px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__details {
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    select {
+      margin-top: 10px;
+    }
+  }
+}
+
+.grid {
+  display: flex;
+}
+
+.module.wide {
+  width: 460px;
+  max-height: 240px;
+
+  .person {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 6px;
+  }
+
+  img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+  }
+
+  h5 {
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .terms {
   width: 630px;
@@ -102,6 +189,7 @@ header .logo {
   background-color: #ffffff;
   padding: 0.5em;
   border-radius: 6px;
+  transition: all 1s ease-in-out;
 
   &__header {
     padding: .8em .8em .8em .8em;
@@ -437,12 +525,17 @@ nav {
       font-size: 0.8em;
       transition: transform 0.1s, border 0.1s, box-shadow 0.1s ease-in-out;
 
-      &:hover {
+      &:hover:not([disabled]) {
         cursor: pointer;
         transform: scale(1.1);
         border-right: 1px solid transparent !important;
         border-left: 1px solid transparent !important;
         box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.35);
+      }
+
+      &[disabled] {
+        background-color: #f0f0f0;
+        color: #7f7f7f;
       }
     }
     
@@ -513,7 +606,7 @@ nav {
   }
 }
 
-main {
+.main {
   padding-bottom: 146px;
 }
 

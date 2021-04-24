@@ -1,0 +1,144 @@
+.subnav {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 6px 14px;
+
+  h1 {
+    font-size: 1.2em;
+    margin-left: 6px;
+  }
+
+  .row {
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 12px;
+
+      li {
+        border-right: 1px solid #e0e0e0;
+        padding: 0px 8px;
+        font-size: 0.8em;
+        line-height: 0.8em;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+          border-right: none;
+        }
+      }
+    }
+  }
+}
+
+.form-description {
+  font-size: 0.8em;
+  line-height: 0.8em;
+  padding: 12px 44px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 185px 1fr;
+  grid-gap: 6px;
+  margin-top: 12px;
+}
+
+.form-left {
+  text-align: right;
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.form-right {
+  input[type=email] {
+    width: 268px;
+  }
+
+  input[type=radio] {
+    margin-left: 0px;
+  }
+
+  fieldset {
+    padding: 0;
+    border: none;
+
+    input {
+      margin-right: 6px;
+    }
+
+    label {
+      margin-right: 12px;
+      font-size: 0.8em;
+    }
+  }
+  
+  p {
+    font-size: 0.7em !important;
+  }
+}
+
+.form-footnote {
+  padding: 6px 12px 12px 12px;
+}
+
+.form-captcha {
+  img {
+    display: block;
+    width: 400px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 24px;
+    width: 300px;
+  }
+
+  p {
+    font-size: 0.8em;
+  }
+
+  input, button {
+    margin-top: 12px;
+  }
+
+  button {
+    display: block;
+    margin-bottom: 12px;
+  }
+}
+
+.upload {
+  border: 1px solid $blue;
+  width: 268px;
+  margin: 12px auto;
+
+  &__header {
+    background-color: $blue;
+    color: #ffffff;
+    padding: 2px 4px;
+    font-size: 0.8em;
+  }
+
+  &__body {
+    padding: 4px;
+  }
+}
+
+.text-center {
+  margin-left: 100px;
+}
+.pad {
+  padding: 0px 12px;
+  font-size: 0.8em;
+}
+
+.row {
+  display: flex;
+
+  &.flex-end {
+    justify-content: flex-end;
+  }
+}

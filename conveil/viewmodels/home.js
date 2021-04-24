@@ -10,6 +10,10 @@ let vm = Vue.createApp({
         password: "",
         remember: false,
       },
+      profile: {
+        tagline: "has joined Conveil!",
+        mood: "good 🙂"
+      }
     }
   },
   methods: {
@@ -17,14 +21,18 @@ let vm = Vue.createApp({
       let email = this.form.email.toLowerCase();
       let password = this.form.password;
 
-      user.auth(email, password);
+      user.auth(email, password, (ack) => {
+        console.log("Auth ack:", ack);
+      });
     },
     logout() { user.leave(); this.name = ""; },
   },
 }).mount('#app')
 
 gun.on("auth", () => {
-  user.once((u) => {
-    vm.name = u.alias[0].toUpperCase() + u.alias.slice(1, u.alias.length)
+  user.get("profile").map().once((u) => {
+    SEA.decrypt(u.name, user._.sea).then((name) => {
+      vm.name = name;
+    });
   });
 });
