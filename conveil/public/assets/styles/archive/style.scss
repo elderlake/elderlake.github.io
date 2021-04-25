@@ -1,61 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&family=Righteous&display=swap');
-
-$red: #b31942;
-$white: #ffffff;
-$blue: #0a3161;
-
-@import "styles/subnav";
-
-*, *::before, *::after { box-sizing: border-box; }
-body, h1, h2, h3, h4, h5, h6, p, ul { margin: 0; }
-
-a {
-  color: $blue;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-body {
-  background-color: #f0f0f0;
-  line-height: 1.2em;
-}
-
-#app {
-  font-family: 'Raleway', Tahoma, Geneva, Verdana, sans-serif;
-  width: 960px;
-  margin: 0 auto;
-  border-left: 1px solid #e0e0e0;
-  border-right: 1px solid #e0e0e0;
-  background-color: #ffffff;
-}
-
-header .logo {
-  margin: 10px 0px;
-  padding: 6px 0px;
-}
-
-.logo {
-  box-sizing: initial;
-  display: flex;
-  align-items: center;
-  height: 30px;
-
-  &__mark {
-    width: 24px;
-    height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  &__text {
-    font-size: 2em;
-    letter-spacing: 1px;
-    font-family: "Righteous";
-    margin-left: 6px;
-  }
-}
-
 .omnicard {
   width: 200px;
   padding: 6px;
@@ -99,10 +41,6 @@ header .logo {
   }
 }
 
-.grid {
-  display: flex;
-}
-
 .module.wide {
   width: 460px;
   max-height: 240px;
@@ -129,17 +67,6 @@ header .logo {
     font-size: 0.9em;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .terms {
   width: 630px;
@@ -183,69 +110,6 @@ header .logo {
   }
 }
 
-.module {
-  margin-bottom: 1em;
-  border: 1px solid #e0e0e0;
-  background-color: #ffffff;
-  padding: 0.5em;
-  border-radius: 6px;
-  transition: all 1s ease-in-out;
-
-  &__header {
-    padding: .8em .8em .8em .8em;
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    margin: 0 0 .5em;
-    background-color: $red;
-  }
-
-  &__body {
-    h3 {
-      color: #333333;
-      font-size: 13px;
-      font-weight: bold;
-      margin: 10px 5px;
-    }
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      li {
-        color: #333333;
-        font-size: 12px;
-        line-height: 16px;
-        margin: 5px;
-        // padding: 2px 0px 3px 25px;
-      }
-    }
-
-    .profile-types {
-      li {
-        padding: 0px 0px 10px 0px;
-
-        &:nth-child(2) {
-          border-top: 1px solid #e0e0e0;
-          border-bottom: 1px solid #e0e0e0;
-          padding-top: 10px;
-        }
-
-        &:nth-child(3) {
-          padding-top: 10px;
-        }
-      }
-    }
-  }
-}
-
-.signupform {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  grid-gap: 10px;
-}
-
 .starbutton {
   background-color: $blue;
   color: #ffffff;
@@ -260,6 +124,7 @@ header .logo {
 .fontnormal {
   font-size: 0.8em;
 }
+
 .fontsmall {
   font-size: 0.7em;
 }
@@ -327,13 +192,6 @@ header .logo {
   }
 }
 
-
-
-
-
-
-
-
 .column {
   display: flex;
   flex-direction: column;
@@ -349,10 +207,6 @@ header .logo {
   &.space-between {
     justify-content: space-between;
   }
-}
-
-.padded {
-  padding: 24px;
 }
 
 .mb {
@@ -471,94 +325,10 @@ table {
   }
 }
 
-header {
-  background-color: #b31942;
-  font-size: 0.7em;
-  padding: 0px 14px;
-  color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;  
-
-  .header__right {
-    display: flex;
-  
-    .select {
-      background-color: #ffffff;
-      margin-right: 12px;
-    }
-  }
-
-  input, select {
-    border: none;
-    background-color: transparent;
-    outline: none;
-  }
-
-  select {
-    appearance: none;
-    border-left: 1px solid #e0e0e0;
-    padding: 4px 6px;
-  }
-
-  button {
-    background-color: #ffffff;
-    border: none;
-  }
-}
-
-nav {
-  background-color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #e0e0e0;
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-
-    li {
-      padding: 10px 12px;
-      background-color: #ffffff;
-      line-height: 0.8em;
-      font-size: 0.8em;
-      transition: transform 0.1s, border 0.1s, box-shadow 0.1s ease-in-out;
-
-      &:hover:not([disabled]) {
-        cursor: pointer;
-        transform: scale(1.1);
-        border-right: 1px solid transparent !important;
-        border-left: 1px solid transparent !important;
-        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.35);
-      }
-
-      &[disabled] {
-        background-color: #f0f0f0;
-        color: #7f7f7f;
-      }
-    }
-    
-    &.left {
-      li { border-right: 1px solid #e0e0e0; }
-    }
-    &.right {
-      li { border-left: 1px solid #e0e0e0; }
-    }
-  }
-}
-
 .hero {
   height: 250px;
   background-color: #f6f6f6;
   border-bottom: 1px solid #e0e0e0;
-}
-
-.columns {
-  padding: 12px;
-  display: grid;
-  grid-template-columns: 624px 300px;
-  grid-gap: 12px;
 }
 
 .card {
@@ -608,103 +378,6 @@ nav {
 
 .main {
   padding-bottom: 146px;
-}
-
-footer {
-  padding: 12px;
-  background-color: #f6f6f6;
-  font-size: 0.8em;
-  text-align: center;
-  border-top: 1px solid #e0e0e0;
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-
-    li {
-      border-right: 1px solid #d0d0d0;
-      padding: 0px 6px;
-
-      &:last-child {
-        border-right: none;
-      }
-    }
-  }
-
-  span {
-    display: block;
-    margin-top: 12px;
-  }
-}
-
-.authbox {
-  padding: 6px;
-  border: 1px solid #e0e0e0;
-  border-radius: 3px;
-
-  &__header {
-    button {
-      background: none;
-      border: none;
-      padding: 12px 24px;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-      background-color: #f0f0f0;
-
-      &.active {
-        background-color: #0a3161;
-        color: #ffffff;
-      }
-    }
-  }
-  &__body {
-    padding: 24px 24px 0px 24px;
-    background-color: #0a3161;
-    color: white;
-    border-top-right-radius: 3px;
-
-    input {
-      width: 100%;
-      margin-bottom: 12px;
-      padding: 6px;
-    }
-  }
-  &__footer {
-    background-color: #0a3161;
-    padding: 0px 24px 24px 24px;
-    color: #ffffff;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    
-    button {
-      margin-bottom: 6px;
-      background: #ffffff;
-      border: none;
-      padding: 6px;
-      border-radius: 3px;
-      font-family: inherit;
-    }
-
-    .marginb {
-      margin-bottom: 24px;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      font-size: 0.9em;
-    }
-
-    & > .right {
-      text-align: right;
-    }
-  }
-}
-
-.margin {
-  margin-top: 12px;
 }
 
 @keyframes cssmarquee {
@@ -842,12 +515,6 @@ footer {
 .form p {
   font-size: 0.9em;
 }
-
-
-
-
-
-
 
 @supports(-webkit-appearance: none) or (-moz-appearance: none) {
   input[type='checkbox'] {

@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Conveil</title>
+
+    <link rel="stylesheet" href="./assets/styles/default.css">
+  </head>
+
+  <body>
+    <div id="app" class="wrapper">
+      <!-- ? Site Header Bar -->
+      <header>
+        <div class="logo">
+          <div class="logo__mark">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="115.43335353820248 178.9554409959646 69.93737417894039 137.88958721264854" height="24">
+              <path fill="#ffffff" d="M170.94 279.73L169.82 276.05L167.84 272.44L165.02 268.88L161.34 265.37L156.81 261.93L151.43 258.53L145.19 255.19L138.1 251.91L182.37 179.96L171.21 283.45L170.94 279.73Z"></path>
+              <path fill="#ffffff" d="M128.62 251.6L132.11 252.64L135.58 253.92L138.88 255.24L141.81 256.45L143.59 257.2L145.33 258.02L147.01 258.92L148.65 259.88L150.25 260.91L151.79 262.02L153.29 263.19L154.74 264.43L156.15 265.74L157.02 266.64L157.79 266.76L120.38 313.85L116.43 260.1L116.7 260.14L116.77 256.17L117.83 253.36L119.71 251.67L122.25 250.93L125.27 250.97L128.62 251.6Z"></path>
+            </svg>
+          </div>
+          <div class="logo__text">conveil</div>
+        </div>
+
+        <div class="header__right">
+          <div class="select">
+            <input type="text">
+            <select>
+              <option>People</option>
+              <option>Conveil</option>
+              <option>Web</option>
+              <option>Music</option>
+              <option>Video</option>
+              <option>Images</option>
+              <option>Games</option>
+            </select>
+          </div>
+          <button>Search</button>
+        </div>
+      </header>
+
+      <!-- ? Navigation Links Bar -->
+      <nav>
+        <ul class="left">
+          <a href="./"><li>Home</li></a>
+          <li disabled>Browse People</li>
+          <li disabled>Find Friends</li>
+          <li disabled>Local</li>
+          <li disabled>Music</li>
+          <li disabled>Video</li>
+          <li disabled>Games</li>
+          <li disabled>Events</li>
+          <li disabled>More</li>
+        </ul>
+
+        <ul class="right">
+          <ul>
+            <li v-if="!name" disabled>Safety</li>
+            <li v-if="!name" disabled>Privacy</li>
+            <li v-else disabled>My Account</li>
+            <a @click="logout" v-if="name"><li>Log Out</li></a>
+            <li v-else disabled>Sign Up</li>
+          </ul>
+        </ul>
+      </nav>
+
+      <!-- * Show if "Logged In" on Home Page -->
+      <main v-if="name">
+        <!-- Home Header -->
+        <div class="row space-between pad-14 bb">
+          <div class="column">
+            <span class="welcome">Hello, {{ name.split(" ")[0] }}!</span>
+            <span class="tagline mt-6">{{ profile.tagline }}</span>
+            <div class="row mood mt-12">
+              <span><strong>Mood:</strong> {{ profile.mood }}</span>
+              <span class="note">Posted 1 minute ago</span>
+            </div>
+          </div>
+
+          <div class="column justify-end text-right">
+            <span class="themes"><a disabled>🌈 Page Themes</a></span>
+            <span class="url mt-12"><a disabled>Pick your Conveil URL! {{ pub }}</a></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="smallcol pad-14">
+            <div class="hub">
+              <div class="hub__avatar">
+                <img src="./assets/images/incognito.jpeg" alt="">
+  
+                <div class="hint"><a href="#">Upload a photo</a> so that your friends can recognize you!</div>
+              </div>
+    
+              <div class="column">
+                <div class="hub__links">
+                  <span><a disabled>Edit Profile</a></span>
+                  <span><strong>Photos:</strong> <a disabled>Edit</a> | <a disabled>Upload</a></span>
+                  <span><strong>Videos:</strong> <a disabled>Edit</a> | <a disabled>Upload</a></span>
+                  <span><a disabled>Manage Calendar</a></span>
+                  <span><a disabled>Manage Blog</a></span>
+                  <span><a disabled>Manage Reviews</a></span>
+                </div>
+                <select disabled>
+                  <option>View My:</option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="module mt-12">
+              <div class="module__header">
+                <span>Alerts</span>
+              </div>
+  
+              <div class="module__body">
+                <ul>
+                  <li>New Birthdays</li>
+                </ul>
+              </div>
+  
+              <div class="module__footer"></div>
+            </div>
+    
+            <!-- <div class="module wide">
+              <div class="module__header">Conveil Announcement</div>
+  
+              <div class="module__body">
+                <div class="person">
+                  <img src="./sabastian.auth/IMG_0115.png" alt="">
+                  <a href="./sabastian.auth/">Sabastian</a>
+                </div>
+  
+                <h4>Latest Update:</h4>
+                <h5>Nov 13, 12:00am PT</h5>
+  
+                <p>Conveil has a free new Blackberry mobile phone app! Get Conveil for your Blackberry smartphone and you can enjoy using the best of Conveil including updating status & mood, uploading photos, sending messages and comments. Be the first to get it exclusively at <a href="http://www.conveil.com/blackberry">http://www.conveil.com/blackberry</a> today!</p>
+              </div>
+            </div> -->
+          </div>
+  
+          <div class="col pt-14">
+            <div class="module">
+              <div class="module__header">
+                <span>Share Update</span>
+              </div>
+  
+              <div class="module__body"></div>
+  
+              <div class="module__footer"></div>
+            </div>
+
+            <div class="module mt-12">
+              <div class="module__header">
+                <span>Bulletin Space</span>
+              </div>
+
+              <div class="module__body">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>From</th>
+                      <th>Date</th>
+                      <th>Bulletin</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td><a href="#">Brandon</a></td>
+                      <td>26 Nov 2007 7:34 p.m.</td>
+                      <td><a href="#">AMHS water polo</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="module__footer"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- * Show if "Logged Out" on Home Page -->
+      <main v-else>
+        <div class="hero"></div>
+
+        <div class="columns">
+          <div class="left">
+            <div class="module">
+              <div class="module__header">
+                <div class="row space-between">
+                  <span>Today on Conveil</span>
+                  <span>Thursday, Apr 22, 2021</span>
+                </div>
+              </div>
+
+              <div class="module__body">
+                <h4>Get Started On Conveil!</h4>
+                <h5>Join for free, and view profiles, connect with others, blog, rank music, and much more!</h5>
+
+                <ul>
+                  <li>
+                    <span>Join now and be a part of the Conveil community</span>
+                  </li>
+                  <li>
+                    <span>Tell us about yourself and upload photos and videos</span>
+                  </li>
+                  <li>
+                    <span>View profiles and add friends to your network</span>
+                  </li>
+                  <li>
+                    <span>Discover new bands, filmmakers and comedians</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="module__footer attention">
+                <a disabled>Take the full tour »</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="module">
+              <div class="module__header row">
+                <span>Member Login</span>
+              </div>
+
+              <div class="module__body column">
+                <div class="row form">
+                  <div class="form__left text-right mr-6">
+                    <label>E-Mail :</label>
+                  </div>
+                  <div class="form__right">
+                    <input type="email" v-model="form.email">
+                  </div>
+                </div>
+
+                <div class="row form mt-6">
+                  <div class="form__left text-right mr-6">
+                    <label>Password :</label>
+                  </div>
+                  <div class="form__right">
+                    <input type="password" v-model="form.password">
+                  </div>
+                </div>
+
+                <div class="row form mt-6">
+                  <div class="form__left"></div>
+                  <div class="form__right">
+                    <div class="row">
+                      <input type="checkbox">
+                      <label>Remember Me</label>
+                    </div>
+                    <div class="row space-between mt-6">
+                      <button @click="login">Login</button>
+                      <button class="primary">Sign Up</button>
+                    </div>
+                    <div class="row justify-end text-right mt-6">
+                      <a disabled>Forgot your password?</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="module mt-12">
+              <div class="module__header">
+                <span>Find Your Friends on Conveil</span>
+              </div>
+
+              <div class="module__body">
+                <span>Find or browse members:</span>
+                <div>
+                  <input type="text" placeholder="Search by name or email">
+                  <button>Go</button>
+                </div>
+              </div>
+
+              <div class="module__footer"></div>
+            </div> -->
+          </div>
+        </div>
+      </main>
+
+      <!-- ? Site Footer -->
+      <footer>
+        <ul>
+          <li>Help</li>
+          <li>Terms</li>
+          <li>Privacy Policy</li>
+          <li>Safety Tips</li>
+          <li>Advertise</li>
+          <li>Developers</li>
+        </ul>
+
+        <ul>
+          <li>Careers</li>
+          <li>Press Room</li>
+          <li>Music</li>
+          <li>Video</li>
+          <li>Sitemap</li>
+        </ul>
+
+        <span>©2021 Conveil, Inc. Made in USA.</span>
+      </footer>
+    </div>
+
+    <script src="./assets/library/gun.js"></script>
+    <script src="./assets/library/sea.js"></script>
+    <script src="./assets/library/vue.global.js"></script>
+    <script src="./assets/viewmodels/home.js"></script>
+  </body>
+</html>

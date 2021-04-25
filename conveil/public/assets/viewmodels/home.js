@@ -12,7 +12,8 @@ let vm = Vue.createApp({
       },
       profile: {
         tagline: "has joined Conveil!",
-        mood: "good 🙂"
+        mood: "good 🙂",
+        photo: "",
       }
     }
   },

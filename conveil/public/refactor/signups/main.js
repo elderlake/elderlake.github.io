@@ -16,6 +16,7 @@ let vm =Vue.createApp({
       },
       isVerifying: false,
       isUploading: false,
+      isConfirming: false,
       resource: {
         months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         days: {"Month": 31, "January": 31, "February": 28, "March": 31, "April": 30, "May": 31, "June": 30, "July": 31, "August": 31, "September": 30, "October": 31, "November": 30, "December": 31},
@@ -29,7 +30,7 @@ let vm =Vue.createApp({
     },
     goUpload() {
       this.isVerifying = false;
-      this.isUploading = true;
+      this.isConfirming = true;
     },
     register() {
       let email = this.form.email.toLowerCase();
